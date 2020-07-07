@@ -366,8 +366,8 @@ updateTalismanInventory();
 calculateObtainium();
 calculateAnts();
 calculateRuneLevels();
-if (forceTime == 0){document.getElementById("preload").style.display = "block"}
-document.getElementById("offlineprogressbar").style.display = "block"
+if (forceTime == 0){document.getElementById("preload").style.display = "flex";}
+document.getElementById("offlineprogressbar").style.display = "flex";
 timeWarp = true
 if (player.offlinetick < 1.5e12) {player.offlinetick = Date.now()}
     var updatedtime = Date.now()

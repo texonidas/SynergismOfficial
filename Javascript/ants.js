@@ -286,7 +286,7 @@ function showSacrifice(){
     mult *= (1 + 0.09 * player.upgrades[40])
 
     let timeMultiplier = Math.min(1, Math.pow(player.antSacrificeTimer / 900, 2)) * Math.max(1, Math.pow(player.antSacrificeTimer/900, 0.92))
-    document.getElementById("antSacrificeSummary").style.display = "block"
+    document.getElementById("antSacrificeSummary").style.display = "flex";
 
     document.getElementById("antELO").childNodes[0].textContent = "Your Ant ELO is "
     document.getElementById("ELO").textContent = format(antELO,2,)

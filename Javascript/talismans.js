@@ -73,9 +73,9 @@ function buyTalismanStuff(i){
 
 function showTalismanEffect(i){
     let ord = [null, "One", "Two", "Three", "Four", "Five", "Six", "Seven"]
-    document.getElementById("talismanlevelup").style.display = "none"
-    document.getElementById("talismanEffect").style.display = "block"
-    document.getElementById("talismanrespec").style.display = "none"
+    document.getElementById("talismanlevelup").style.display = "none";
+    document.getElementById("talismanEffect").style.display = "flex";
+    document.getElementById("talismanrespec").style.display = "none";
     let a = document.getElementById("talismanSummary")
     let b = document.getElementById("talismanBonus")
     let c = document.getElementById("talismanRune1Effect")
@@ -163,9 +163,9 @@ function showTalismanEffect(i){
 }
 
 function showTalismanPrices(i){
-    document.getElementById("talismanEffect").style.display = "none"
-    document.getElementById("talismanlevelup").style.display = "block"
-    document.getElementById("talismanrespec").style.display = "none"
+    document.getElementById("talismanEffect").style.display = "none";
+    document.getElementById("talismanlevelup").style.display = "flex";
+    document.getElementById("talismanrespec").style.display = "none";
     let a = document.getElementById("talismanShardCost")
     let b = document.getElementById("talismanCommonFragmentCost")
     let c = document.getElementById("talismanUncommonFragmentCost")
@@ -190,9 +190,9 @@ function showTalismanPrices(i){
 }
 
 function showEnhanceTalismanPrices(i){
-    document.getElementById("talismanEffect").style.display = "none"
-    document.getElementById("talismanlevelup").style.display = "block"
-    document.getElementById("talismanrespec").style.display = "none"
+    document.getElementById("talismanEffect").style.display = "none";
+    document.getElementById("talismanlevelup").style.display = "flex";
+    document.getElementById("talismanrespec").style.display = "none";
     let a = document.getElementById("talismanShardCost")
     let b = document.getElementById("talismanCommonFragmentCost")
     let c = document.getElementById("talismanUncommonFragmentCost")
@@ -220,9 +220,9 @@ function showEnhanceTalismanPrices(i){
 function showRespecInformation(i){
     talismanRespec = i
     let num=[null, "One", "Two", "Three", "Four", "Five", "Six", "Seven"]
-    document.getElementById("talismanEffect").style.display = "none"
-    document.getElementById("talismanlevelup").style.display = "none"
-    document.getElementById("talismanrespec").style.display = "block"
+    document.getElementById("talismanEffect").style.display = "none";
+    document.getElementById("talismanlevelup").style.display = "none";
+    document.getElementById("talismanrespec").style.display = "flex";
 
     let runeName = [null, "Speed Rune", "Duplication Rune", "Prism Rune", "Thrift Rune", "SI Rune"]
     let runeModifier = [null, "Positive", "Positive", "Positive", "Positive"]
@@ -237,7 +237,7 @@ function showRespecInformation(i){
         document.getElementById("talismanRespecButton" + j).textContent = runeName[j] + ": " + runeModifier[j]
     }
 
-    document.getElementById("confirmTalismanRespec").style.display = "none"
+    document.getElementById("confirmTalismanRespec").style.display = "none";
 }
 
 function changeTalismanModifier(i){
@@ -259,7 +259,7 @@ function changeTalismanModifier(i){
     }, 0);
 
     if (checkSum == 1){
-    document.getElementById("confirmTalismanRespec").style.display = "block";
+    document.getElementById("confirmTalismanRespec").style.display = "flex";
     }
     else {
     document.getElementById("confirmTalismanRespec").style.display = "none";
@@ -276,7 +276,7 @@ function respecTalismanConfirm(i){
     player.runeshards -= 100000;
     document.getElementById("confirmTalismanRespec").style.display = "none";
     document.getElementById("talismanrespec").style.display = "none";
-    document.getElementById("talismanEffect").style.display = "block";
+    document.getElementById("talismanEffect").style.display = "flex";
     showTalismanEffect(i);
     calculateRuneLevels();
     }
@@ -284,8 +284,8 @@ function respecTalismanConfirm(i){
 }
 
 function respecTalismanCancel(i){
-    document.getElementById("talismanrespec").style.display = "none"
-    document.getElementById("talismanEffect").style.display = "block";
+    document.getElementById("talismanrespec").style.display = "none";
+    document.getElementById("talismanEffect").style.display = "flex";
     showTalismanEffect(i);
 }
 

@@ -1,6 +1,6 @@
 function challengeDisplay(i,changefocus, automated) {
     changefocus = (changefocus === null || changefocus === undefined) ? true : changefocus;
-    if (changefocus){challengefocus = i; document.getElementById("challengeDetails").style.display = "block"}
+    if (changefocus){challengefocus = i; document.getElementById("challengeDetails").style.display = "flex";}
 
     let ordinals = [null,'one','two','three','four','five','six','seven','eight','nine','ten']
     let q = ordinals[i]
@@ -8,7 +8,7 @@ function challengeDisplay(i,changefocus, automated) {
     let quarksMultiplier = 1;
     if (changefocus){
         challengefocus = i;
-        document.getElementById("challengeDetails").style.display = "block";
+        document.getElementById("challengeDetails").style.display = "flex";
         triggerChallenge = ordinals[i]
     }
 

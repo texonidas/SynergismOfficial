@@ -197,13 +197,13 @@ function toggleRuneScreen(){
     if (runescreen == "runes"){
         runescreen = "talismans";
         document.getElementById("runecontainer1").style.display = "none";
-        document.getElementById("runecontainer2").style.display = "block";
+        document.getElementById("runecontainer2").style.display = "flex";
         document.getElementById("togglerunesubtab").textContent = "GO BACK TO RUNES"
         document.getElementById("togglerunesubtab").style.border = "2px solid orangered"
     }
     else{
         runescreen = "runes";
-        document.getElementById("runecontainer1").style.display = "block";
+        document.getElementById("runecontainer1").style.display = "flex";
         document.getElementById("runecontainer2").style.display = "none";
         document.getElementById("togglerunesubtab").textContent = "GO TO TALISMANS"
         document.getElementById("togglerunesubtab").style.border = "2px solid grey"
@@ -213,12 +213,12 @@ function toggleSettingScreen(){
     if (settingscreen == "settings"){
         settingscreen = "credits";
         document.getElementById("settingsubtab").style.display = "none";
-        document.getElementById("creditssubtab").style.display = "block";
+        document.getElementById("creditssubtab").style.display = "flex";
         document.getElementById("switchsettingtab").textContent = "Go back to Settings"
     }
     else{
         settingscreen = "settings";
-        document.getElementById("settingsubtab").style.display = "block";
+        document.getElementById("settingsubtab").style.display = "flex";
         document.getElementById("creditssubtab").style.display = "none";
         document.getElementById("switchsettingtab").textContent = "Credits & Acknowledgements"
     };

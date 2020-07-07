@@ -1,0 +1,76 @@
+.coin
+{
+    color: gold;
+    border-color: gold;
+}
+.diamond
+{
+    color: cyan;
+    border-color: cyan;
+}
+.generator
+{
+    color: lightgray;   
+}
+.automation
+{
+    color: crimson;
+}
+
+.quark
+{
+    color: white;
+    border-color: white;
+}
+.mythos
+{
+    color: plum;
+    border-color: plum;
+}
+
+.small-accent .particle, .small-accent.particle, .particle
+{
+    color: limegreen;
+    border-color: green;
+}
+.medium-accent .particle, .medium-accent.particle
+{
+    color: lime;
+}
+.large-accent .particle, .large-accent.particle
+{
+    color: lime;
+}
+
+.small-accent .obtainium, .small-accent.obtainium, .obtainium
+{
+    color: pink;
+}
+.medium-accent .obtainium, .medium-accent.obtainium
+{
+    color: crimson;
+}
+.large-accent .obtainium, .large-accent.obtainium
+{
+    color: crimson;
+}
+
+.ant
+{
+    border-color: maroon;
+}
+
+.shop
+{
+    border-color: white;
+}
+
+.standard
+{
+    background-color: #111111;
+}
+
+.auto
+{
+    background-color: #171717;
+}

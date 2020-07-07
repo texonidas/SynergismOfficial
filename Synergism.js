@@ -904,7 +904,7 @@ for (j = 1; j <= (125); j++) {
 }
 
 runescreen = "runes";
-document.getElementById("runecontainer1").style.display = "block";
+document.getElementById("runecontainer1").style.display = "flex";
 document.getElementById("runecontainer2").style.display = "none";
 document.getElementById("togglerunesubtab").textContent = "GO TO TALISMANS"
 document.getElementById("togglerunesubtab").style.border = "2px solid grey"
@@ -954,9 +954,9 @@ if (player.achievements[102] == 1)document.getElementById("runeshowpower4").text
 
 document.getElementById("researchrunebonus").textContent = "Thanks to researches, your effective levels are increased by " + (100 * effectiveLevelMult - 100).toPrecision(4) + "%";
 
-document.getElementById("runecontainer2").style.display = "none"
-document.getElementById("talismanlevelup").style.display = "none"
-document.getElementById("talismanrespec").style.display = "none"
+document.getElementById("runecontainer2").style.display = "none";
+document.getElementById("talismanlevelup").style.display = "none";
+document.getElementById("talismanrespec").style.display = "none";
 
 updateTalismanAppearance(1);
 updateTalismanAppearance(2);
@@ -2082,7 +2082,7 @@ function constantIntervals() {
 
 		if(!timeWarp){
 			document.getElementById("preload").style.display = "none";
-			document.getElementById("offlineprogressbar").style.display = "none"}
+			document.getElementById("offlineprogressbar").style.display = "none";}
 	}
 
 let lastUpdate = 0;
@@ -2098,7 +2098,7 @@ const toggleBtnColors = function() {
 	const idx = Object.keys(toggles);
 
 	for(let i = 0; i < idx.length; i++) { // 1 -> 30, but let's make it work in the future
-		const el = document.querySelector('*[class=auto][id=toggle' + (i+1) + ']');
+		const el = document.getElementById('toggle' + (i+1));
 		if(!el) {
 			continue;
 		}
@@ -2281,7 +2281,7 @@ window['addEventListener' in window ? 'addEventListener' : 'attachEvent']('load'
 	/**
 	 * After window loads, add an event listener to handle clicks on the export bar.
 	 */
-	document.querySelector('.saveClose').addEventListener('click', function() {
-		document.querySelector('.save').style.display = 'none';
-	});
+	/*document.querySelector('.saveClose').addEventListener('click', function() {
+		document.querySelector('.save').style.display = "none";
+	});*/
 });

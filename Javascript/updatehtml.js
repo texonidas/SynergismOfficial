@@ -54,91 +54,91 @@ function revealStuff() {
     };
     var k = document.getElementsByClassName("chal7");
     for (var i = 0; i < k.length; i++) {
-    k[i].style.display = "none"
+    k[i].style.display = "none";
     };
     var ki = document.getElementsByClassName("chal7x10");
     for (var i = 0; i < ki.length; i++){
-    ki[i].style.display = "none"
+    ki[i].style.display = "none";
     }
     let l = document.getElementsByClassName("chal8");
     for (var i = 0; i < l.length; i++){
-    l[i].style.display = "none"
+    l[i].style.display = "none";
     };
     let m = document.getElementsByClassName("chal9");
     for (var i = 0; i < m.length; i++){
-    m[i].style.display = "none"
+    m[i].style.display = "none";
     };
     let n = document.getElementsByClassName("chal10");
     for (var i = 0; i < n.length; i++){
-    n[i].style.display = "none"
+    n[i].style.display = "none";
     };
 
 
-document.getElementById("rune2area").style.display = "none"
-document.getElementById("rune3area").style.display = "none"
-document.getElementById("rune4area").style.display = "none"
-document.getElementById("rune5area").style.display = "none"
-document.getElementById("prestigeautomation").style.display = "none"
-document.getElementById("transcendautomation").style.display = "none"
-document.getElementById("reincarnateautomation").style.display = "none"
-document.getElementById("toggleautosacrifice").style.display = "none"
-document.getElementById("toggleautoresearch").style.display = "none"
-document.getElementById("antSacrificeSummary").style.display = "none"
-document.getElementById("sacrificeAnts").style.display = "none"
-document.getElementById("togglerunesubtab").style.display = "none"
-document.getElementById("talisman1area").style.display = "none"
-document.getElementById("talisman2area").style.display = "none"
-document.getElementById("talisman3area").style.display = "none"
-document.getElementById("talisman4area").style.display = "none"
-document.getElementById("talisman5area").style.display = "none"
-document.getElementById("talisman6area").style.display = "none"
-document.getElementById("talisman7area").style.display = "none"
-document.getElementById("toggleAutoSacrificeAnt").style.display = "none"
+document.getElementById("rune2area").style.display = "none";
+document.getElementById("rune3area").style.display = "none";
+document.getElementById("rune4area").style.display = "none";
+document.getElementById("rune5area").style.display = "none";
+document.getElementById("prestigeautomation").style.display = "none";
+document.getElementById("transcendautomation").style.display = "none";
+document.getElementById("reincarnateautomation").style.display = "none";
+document.getElementById("toggleautosacrifice").style.display = "none";
+document.getElementById("toggleautoresearch").style.display = "none";
+document.getElementById("antSacrificeSummary").style.display = "none";
+document.getElementById("sacrificeAnts").style.display = "none";
+document.getElementById("togglerunesubtab").style.display = "none";
+document.getElementById("talisman1area").style.display = "none";
+document.getElementById("talisman2area").style.display = "none";
+document.getElementById("talisman3area").style.display = "none";
+document.getElementById("talisman4area").style.display = "none";
+document.getElementById("talisman5area").style.display = "none";
+document.getElementById("talisman6area").style.display = "none";
+document.getElementById("talisman7area").style.display = "none";
+document.getElementById("toggleAutoSacrificeAnt").style.display = "none";
 
-if(player.achievements[38] == 1) document.getElementById("rune2area").style.display = "block";
-if(player.achievements[44] == 1) document.getElementById("rune3area").style.display = "block";
-if(player.achievements[102] == 1) document.getElementById("rune4area").style.display = "block";
-if(player.researches[82] == 1) document.getElementById("rune5area").style.display = "block";
-if(player.achievements[43] == 1) document.getElementById("prestigeautomation").style.display = "block";
-if(player.upgrades[89] == 1) document.getElementById("transcendautomation").style.display = "block";
-if(player.researches[46] == 1) document.getElementById("reincarnateautomation").style.display = "block";
-if(player.shopUpgrades.offeringAutoLevel > 0.5) document.getElementById("toggleautosacrifice").style.display = "block";
-if(player.shopUpgrades.obtainiumAutoLevel > 0.5) document.getElementById("toggleautoresearch").style.display = "block";
-if(player.achievements[173] == 1) document.getElementById("sacrificeAnts").style.display = "block";
-if(player.achievements[134] == 1) document.getElementById("togglerunesubtab").style.display = "block";
-if(player.achievements[119] == 1) document.getElementById("talisman1area").style.display = "block";
-if(player.achievements[126] == 1) document.getElementById("talisman2area").style.display = "block";
-if(player.achievements[133] == 1) document.getElementById("talisman3area").style.display = "block";
-if(player.achievements[140] == 1) document.getElementById("talisman4area").style.display = "block";
-if(player.achievements[147] == 1) document.getElementById("talisman5area").style.display = "block";
-if(player.antUpgrades[12] > 0) document.getElementById("talisman6area").style.display = "block";
-if(player.shopUpgrades.talismanBought) document.getElementById("talisman7area").style.display = "block";
-if(player.researches[124] > 0) document.getElementById("toggleAutoSacrificeAnt").style.display = "block";
+if(player.achievements[38] == 1) document.getElementById("rune2area").style.display = "flex";
+if(player.achievements[44] == 1) document.getElementById("rune3area").style.display = "flex";
+if(player.achievements[102] == 1) document.getElementById("rune4area").style.display = "flex";
+if(player.researches[82] == 1) document.getElementById("rune5area").style.display = "flex";
+if(player.achievements[43] == 1) document.getElementById("prestigeautomation").style.display = "flex";
+if(player.upgrades[89] == 1) document.getElementById("transcendautomation").style.display = "flex";
+if(player.researches[46] == 1) document.getElementById("reincarnateautomation").style.display = "flex";
+if(player.shopUpgrades.offeringAutoLevel > 0.5) document.getElementById("toggleautosacrifice").style.display = "flex";
+if(player.shopUpgrades.obtainiumAutoLevel > 0.5) document.getElementById("toggleautoresearch").style.display = "flex";
+if(player.achievements[173] == 1) document.getElementById("sacrificeAnts").style.display = "flex";
+if(player.achievements[134] == 1) document.getElementById("togglerunesubtab").style.display = "flex";
+if(player.achievements[119] == 1) document.getElementById("talisman1area").style.display = "flex";
+if(player.achievements[126] == 1) document.getElementById("talisman2area").style.display = "flex";
+if(player.achievements[133] == 1) document.getElementById("talisman3area").style.display = "flex";
+if(player.achievements[140] == 1) document.getElementById("talisman4area").style.display = "flex";
+if(player.achievements[147] == 1) document.getElementById("talisman5area").style.display = "flex";
+if(player.antUpgrades[12] > 0) document.getElementById("talisman6area").style.display = "flex";
+if(player.shopUpgrades.talismanBought) document.getElementById("talisman7area").style.display = "flex";
+if(player.researches[124] > 0) document.getElementById("toggleAutoSacrificeAnt").style.display = "flex";
 
 
 
 if (player.unlocks.coinone == true) {
     let c1 = document.getElementsByClassName("coinunlock1");
     for (var i = 0; i < c1.length; i++) {
-      c1[i].style.display = "block";
+      c1[i].style.display = "flex";
     }
 }
 if (player.unlocks.cointwo == true) {
     let c2 = document.getElementsByClassName("coinunlock2");
       for (var i = 0; i < c2.length; i++) {
-    c2[i].style.display = "block";
+    c2[i].style.display = "flex";
       }
 }
 if (player.unlocks.cointhree == true) {
     let c3 = document.getElementsByClassName("coinunlock3");
       for (var i = 0; i < c3.length; i++) {
-    c3[i].style.display = "block";
+    c3[i].style.display = "flex";
       }
 }
 if (player.unlocks.coinfour == true) {
     let c4 = document.getElementsByClassName("coinunlock4");
       for (var i = 0; i < c4.length; i++) {
-    c4[i].style.display = "block";
+    c4[i].style.display = "flex";
       }
 }
 
@@ -146,49 +146,49 @@ if (player.unlocks.coinfour == true) {
 if (player.unlocks.prestige == true) {
     let a = document.getElementsByClassName("prestigeunlock");
       for (var i = 0; i < a.length; i++) {
-    a[i].style.display = "block";
+    a[i].style.display = "flex";
   }
 }
 if (player.unlocks.generation == true) {
     let b = document.getElementsByClassName("generationunlock");
     for (var i = 0; i < b.length; i++) {
-    b[i].style.display = "block";
+    b[i].style.display = "flex";
     }	
 }
 if (player.unlocks.transcend == true) {
     let c = document.getElementsByClassName("transcendunlock");
       for (var i = 0; i < c.length; i++) {
-    c[i].style.display = "block";
+    c[i].style.display = "flex";
   }
 }
 if (player.unlocks.reincarnate == true) {
     let d = document.getElementsByClassName("reincarnationunlock");
     for (var i = 0; i < d.length; i++) {
-    d[i].style.display = "block";
+    d[i].style.display = "flex";
 }
 }
 if (player.unlocks.rrow1 == true) {
 let e = document.getElementsByClassName("reinrow1");
 for (var i = 0; i < e.length; i++) {
-e[i].style.display = "block";
+e[i].style.display = "flex";
     }
 }
 if (player.unlocks.rrow2 == true) {
     let e = document.getElementsByClassName("reinrow2");
     for (var i = 0; i < e.length; i++) {
-    e[i].style.display = "block";
+    e[i].style.display = "flex";
             }
         }
         if (player.unlocks.rrow3 == true) {
             let e = document.getElementsByClassName("reinrow3");
             for (var i = 0; i < e.length; i++) {
-            e[i].style.display = "block";
+            e[i].style.display = "flex";
                     }
                 }
                 if (player.unlocks.rrow4 == true) {
                     let e = document.getElementsByClassName("reinrow4");
                     for (var i = 0; i < e.length; i++) {
-                    e[i].style.display = "block";
+                    e[i].style.display = "flex";
                             }
                         }
                         if (player.achievements[120] == 1){
@@ -200,125 +200,125 @@ if (player.unlocks.rrow2 == true) {
                         if (player.achievements[124] == 1){
                             let e = document.getElementsByClassName("chal7x10");
                             for (var i = 0; i < e.length; i++) {
-                                e[i].style.display = "block";
+                                e[i].style.display = "flex";
                             }
                         }
                           if (player.achievements[127] == 1){
                             let e = document.getElementsByClassName("chal8");
                             for (var i = 0; i < e.length; i++){
-                              e[i].style.display = "block"
+                              e[i].style.display = "flex";
                             }
                           }
                           if (player.achievements[134] == 1){
                             let e = document.getElementsByClassName("chal9");
                             for (var i = 0; i < e.length; i++){
-                              e[i].style.display = "block"
+                              e[i].style.display = "flex";
                             }
                           }
                           if (player.achievements[141] == 1){
                             let e = document.getElementsByClassName("chal10");
                             for (var i = 0; i < e.length; i++){
-                              e[i].style.display = "block"
+                              e[i].style.display = "flex";
                             }
                           }
 var e = document.getElementsByClassName("auto");
-    if (player.upgrades[81] == 1){e[0].style.display = "block";}
-    if (player.upgrades[82] == 1){e[1].style.display = "block";}
-    if (player.upgrades[83] == 1){e[2].style.display = "block";}
-    if (player.upgrades[84] == 1){e[3].style.display = "block";}
-    if (player.upgrades[85] == 1){e[4].style.display = "block";}
-    if (player.upgrades[86] == 1){e[5].style.display = "block";}
-    if (player.upgrades[87] == 1){e[6].style.display = "block";}
-    if (player.upgrades[88] == 1){e[7].style.display = "block";}
-    if (player.upgrades[91] == 1){e[8].style.display = "block";}
-    if (player.upgrades[92] == 1){e[9].style.display = "block";}
-    if (player.upgrades[99] == 1){e[10].style.display = "block";}
-    if (player.upgrades[90] == 1){e[11].style.display = "block";}
-    if (player.unlocks.prestige) {e[12].style.display = "block";}
-    if (player.achievements[78] == 1){e[13].style.display = "block";}
-    if (player.achievements[85] == 1){e[14].style.display = "block";}
-    if (player.achievements[92] == 1){e[15].style.display = "block";}
-    if (player.achievements[99] == 1){e[16].style.display = "block";}
-    if (player.achievements[106] == 1){e[17].style.display = "block";}
-    if (player.achievements[43] == 1){e[18].style.display = "block";}
-    if (player.upgrades[94] == 1){e[19].style.display = "block";}
-    if (player.upgrades[95] == 1){e[20].style.display = "block";}
-    if (player.upgrades[96] == 1){e[21].style.display = "block";}
-    if (player.upgrades[97] == 1){e[22].style.display = "block";}
-    if (player.upgrades[98] == 1){e[23].style.display = "block";}
-    if (player.upgrades[89] == 1){e[24].style.display = "block";}
-    if (player.researches[46] == 1){e[30].style.display = "block";}
-    if (player.prestigeCount > 0.5 || player.reincarnationCount > 0.5){e[31].style.display = "block";}
-    if (player.transcendCount > 0.5 || player.reincarnationCount > 0.5){e[32].style.display = "block";}
-    if (player.reincarnationCount > 0.5){e[33].style.display = "block";}
+    if (player.upgrades[81] == 1){e[0].style.display = "flex";}
+    if (player.upgrades[82] == 1){e[1].style.display = "flex";}
+    if (player.upgrades[83] == 1){e[2].style.display = "flex";}
+    if (player.upgrades[84] == 1){e[3].style.display = "flex";}
+    if (player.upgrades[85] == 1){e[4].style.display = "flex";}
+    if (player.upgrades[86] == 1){e[5].style.display = "flex";}
+    if (player.upgrades[87] == 1){e[6].style.display = "flex";}
+    if (player.upgrades[88] == 1){e[7].style.display = "flex";}
+    if (player.upgrades[91] == 1){e[8].style.display = "flex";}
+    if (player.upgrades[92] == 1){e[9].style.display = "flex";}
+    if (player.upgrades[99] == 1){e[10].style.display = "flex";}
+    if (player.upgrades[90] == 1){e[11].style.display = "flex";}
+    if (player.unlocks.prestige) {e[12].style.display = "flex";}
+    if (player.achievements[78] == 1){e[13].style.display = "flex";}
+    if (player.achievements[85] == 1){e[14].style.display = "flex";}
+    if (player.achievements[92] == 1){e[15].style.display = "flex";}
+    if (player.achievements[99] == 1){e[16].style.display = "flex";}
+    if (player.achievements[106] == 1){e[17].style.display = "flex";}
+    if (player.achievements[43] == 1){e[18].style.display = "flex";}
+    if (player.upgrades[94] == 1){e[19].style.display = "flex";}
+    if (player.upgrades[95] == 1){e[20].style.display = "flex";}
+    if (player.upgrades[96] == 1){e[21].style.display = "flex";}
+    if (player.upgrades[97] == 1){e[22].style.display = "flex";}
+    if (player.upgrades[98] == 1){e[23].style.display = "flex";}
+    if (player.upgrades[89] == 1){e[24].style.display = "flex";}
+    if (player.researches[46] == 1){e[30].style.display = "flex";}
+    if (player.prestigeCount > 0.5 || player.reincarnationCount > 0.5){e[31].style.display = "flex";}
+    if (player.transcendCount > 0.5 || player.reincarnationCount > 0.5){e[32].style.display = "flex";}
+    if (player.reincarnationCount > 0.5){e[33].style.display = "flex";}
 
 
     }
 
 function hideStuff() {
-document.getElementById("buildings").style.display = "none"	
+document.getElementById("buildings").style.display = "none";	
 document.getElementById("buildingstab").style.backgroundColor = "#171717";
-document.getElementById("upgrades").style.display = "none"
+document.getElementById("upgrades").style.display = "none";
 document.getElementById("upgradestab").style.backgroundColor = "#171717"
-document.getElementById("settings").style.display = "none"
+document.getElementById("settings").style.display = "none";
 document.getElementById("settingstab").style.backgroundColor = "#171717"
 document.getElementById("settingstab").style.color = "white"
-document.getElementById("statistics").style.display = "none"
+document.getElementById("statistics").style.display = "none";
 document.getElementById("achievementstab").style.backgroundColor = "#171717"
 document.getElementById("achievementstab").style.color = "white"
-document.getElementById("prestige").style.display = "none"
+document.getElementById("prestige").style.display = "none";
 document.getElementById("prestigetab").style.backgroundColor = "#171717"
-document.getElementById("runes").style.display = "none"
+document.getElementById("runes").style.display = "none";
 document.getElementById("runestab").style.backgroundColor = "#171717"
-document.getElementById("transcension").style.display = "none"
+document.getElementById("transcension").style.display = "none";
 document.getElementById("transcensiontab").style.backgroundColor = "#171717"
-document.getElementById("challenges").style.display = "none"
+document.getElementById("challenges").style.display = "none";
 document.getElementById("challengetab").style.backgroundColor = "#171717"
-document.getElementById("reincarnation").style.display = "none"
+document.getElementById("reincarnation").style.display = "none";
 document.getElementById("reincarnationtab").style.backgroundColor = "#171717"
-document.getElementById("research").style.display = "none"
+document.getElementById("research").style.display = "none";
 document.getElementById("researchtab").style.backgroundColor = "#171717"
-document.getElementById("shop").style.display = "none"
+document.getElementById("shop").style.display = "none";
 document.getElementById("shoptab").style.backgroundColor = "purple"
-document.getElementById("ants").style.display = "none"
+document.getElementById("ants").style.display = "none";
 document.getElementById("anttab").style.backgroundColor = "#171717"
 
-document.getElementById("activaterune2").style.display = "none"
-document.getElementById("activaterune3").style.display = "none"
-document.getElementById("activaterune4").style.display = "none"
+document.getElementById("activaterune2").style.display = "none";
+document.getElementById("activaterune3").style.display = "none";
+document.getElementById("activaterune4").style.display = "none";
 
 if (currentTab == "buildings") {
     document.getElementById("buildingstab").style.backgroundColor = "orange";
-    document.getElementById("buildings").style.display = "block"
+    document.getElementById("buildings").style.display = "flex";
     player.tabnumber = 1;
 }
 if (currentTab == "upgrades") {
-    document.getElementById("upgrades").style.display = "block"
+    document.getElementById("upgrades").style.display = "flex";
     document.getElementById("upgradestab").style.backgroundColor = "orange"
     document.getElementById("upgradedescription").textContent = "Hover over an upgrade to view details!"
     player.tabnumber = 2;
 }
 if (currentTab == "settings") {
-    document.getElementById("settings").style.display = "block"
+    document.getElementById("settings").style.display = "flex";
     document.getElementById("settingstab").style.backgroundColor = "white"
     document.getElementById("settingstab").style.color = "black"
 
 
 }
 if (currentTab == "achievements") {
-    document.getElementById("statistics").style.display = "block"
+    document.getElementById("statistics").style.display = "flex";
     document.getElementById("achievementstab").style.backgroundColor = "white"
     document.getElementById("achievementstab").style.color = "black"
     document.getElementById("achievementprogress").textContent = "Achievement Points: " + player.achievementPoints + "/" + totalachievementpoints + " [" + (100 * player.achievementPoints/totalachievementpoints).toPrecision(4) + "%]"
     player.tabnumber = 3;
 }
 if (currentTab == "prestige") {
-    document.getElementById("prestige").style.display = "block"
+    document.getElementById("prestige").style.display = "flex";
     document.getElementById("prestigetab").style.backgroundColor = "blue"
     player.tabnumber = 4;
 }
 if (currentTab == "runes") {
-    document.getElementById("runes").style.display = "block"
+    document.getElementById("runes").style.display = "flex";
     document.getElementById("runestab").style.backgroundColor = "blue"
     document.getElementById("runeshowlevelup").textContent = "Hey, hover over a rune icon to get details on what each one does and what benefits they're giving you!"
     document.getElementById("researchrunebonus").textContent = "Thanks to researches, your effective levels are increased by " + (100 * effectiveLevelMult - 100).toPrecision(4) + "%"
@@ -330,43 +330,43 @@ if (currentTab == "runes") {
     player.tabnumber = 5;
 }
 if (currentTab == "transcension") {
-    document.getElementById("transcension").style.display = "block"
+    document.getElementById("transcension").style.display = "flex";
     document.getElementById("transcensiontab").style.backgroundColor = "purple"
     player.tabnumber = 6;
 }
 if (currentTab == "challenges") {
-    document.getElementById("challenges").style.display = "block"
+    document.getElementById("challenges").style.display = "flex";
     document.getElementById("challengetab").style.backgroundColor = "purple"
     player.tabnumber = 7;
 }
 if (currentTab == "reincarnation") {
-    document.getElementById("reincarnation").style.display = "block"
+    document.getElementById("reincarnation").style.display = "flex";
     document.getElementById("reincarnationtab").style.backgroundColor = "green"
     player.tabnumber = 8;
 
 }
 if (currentTab == "researches") {
-    document.getElementById("research").style.display = "block"
+    document.getElementById("research").style.display = "flex";
     document.getElementById("researchtab").style.backgroundColor = "green"
     player.tabnumber = 9;
 }
 if (currentTab == "shop") {
-  document.getElementById("shop").style.display = "block"
+  document.getElementById("shop").style.display = "flex";
   document.getElementById("shoptab").style.backgroundColor = "limegreen"
 }
 if (currentTab == "ants"){
-  document.getElementById("ants").style.display = "block"
+  document.getElementById("ants").style.display = "flex";
   document.getElementById("anttab").style.backgroundColor = "brown"
 }
 
 if (player.achievements[38] > 0.5) {
-    document.getElementById("activaterune2").style.display = "block"
+    document.getElementById("activaterune2").style.display = "flex";
 }
 if (player.achievements[44] > 0.5) {
-    document.getElementById("activaterune3").style.display = "block"
+    document.getElementById("activaterune3").style.display = "flex";
 }
 if (player.achievements[102]> 0.5) {
-    document.getElementById("activaterune4").style.display = "block"
+    document.getElementById("activaterune4").style.display = "flex";
 }
 }
 

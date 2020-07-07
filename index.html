@@ -1,431 +1,505 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
-    <meta content="utf-8" http-equiv="encoding">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+        <meta content="utf-8" http-equiv="encoding">
 
-    <script src='https://cdn1.kongregate.com/javascripts/kongregate_api.js'></script>
-    <script src="break_infinity.js"></script>
-    <script src="lz-string.js"></script>
-    <script src="Synergism.js"></script>
-    
-    <script src="Javascript/ants.js"></script>
-    <script src="Javascript/shop.js"></script>
-    <script src="Javascript/buystuff.js"></script>
-    <script src="Javascript/toggles.js"></script>
-    <script src="Javascript/variables.js"></script>
-    <script src="Javascript/upgrades.js"></script>
-    <script src="Javascript/achievements.js"></script>
-    <script src="Javascript/reset.js"></script>
-    <script src="Javascript/diamonds.js"></script>
-    <script src="Javascript/challenges.js"></script>
-    <script src="Javascript/runes.js"></script>
-    <script src="Javascript/TaxTEST.js"></script>
-    <script src="Javascript/automation.js"></script>
-    <script src="Javascript/exportimport.js"></script>
-    <script src="Javascript/updatehtml.js"></script>
-    <script src="Javascript/submit.js"></script>
-    <script src="Javascript/talismans.js"></script>
-    <script src="Javascript/calculate.js"></script>
-    <!--<script src="Javascript/i18n.js"></script>-->
-    <title>Synergism 1.010</title>
-</head>
-<body>
-<main>
-    <div class="save">
-        <button class="saveClose"></button>
-    </div>
+        <link href="Synergism.css" rel="stylesheet" />
+        <link href="Themes.css" rel="stylesheet" />
+        <script src='https://cdn1.kongregate.com/javascripts/kongregate_api.js'></script>
+        <script src="break_infinity.js"></script>
+        <script src="lz-string.js"></script>
+        <script src="Synergism.js"></script>
 
+        <script src="Javascript/ants.js"></script>
+        <script src="Javascript/shop.js"></script>
+        <script src="Javascript/buystuff.js"></script>
+        <script src="Javascript/toggles.js"></script>
+        <script src="Javascript/variables.js"></script>
+        <script src="Javascript/upgrades.js"></script>
+        <script src="Javascript/achievements.js"></script>
+        <script src="Javascript/reset.js"></script>
+        <script src="Javascript/diamonds.js"></script>
+        <script src="Javascript/challenges.js"></script>
+        <script src="Javascript/runes.js"></script>
+        <script src="Javascript/TaxTEST.js"></script>
+        <script src="Javascript/automation.js"></script>
+        <script src="Javascript/exportimport.js"></script>
+        <script src="Javascript/updatehtml.js"></script>
+        <script src="Javascript/submit.js"></script>
+        <script src="Javascript/talismans.js"></script>
+        <script src="Javascript/calculate.js"></script>
+        <!--<script src="Javascript/i18n.js"></script>-->
+        <title>Synergism 1.010</title>
+    </head>
+    <body class="standard">
+        <main style="width: 1050px; height: 625px">
+            <div id="main-game">
+                <div id="top-margin" style="height: 30px"></div>
+                <div id="resources-reset-top-bar">
+                    <div id="dead-space" style="width: 56px"></div>
+                    <div id="resources-table" class="small-accent">
+                        <div style="height: 50%" class="v-centered-children-children">
+                            <div class="coin">
+                                <img src="Pictures/Coin.png" title="Coin" />
+                                <div id="coinDisplay">1</div>
+                            </div>
+                            <div class="diamond prestigeunlock">
+                                <img src="Pictures/Diamond.png" title="Diamond" />
+                                <div id="diamondDisplay">1</div>
+                            </div>
+                            <div class="coin prestigeunlock">
+                                <img src="Pictures/Offering.png" title="Offering" />
+                                <div id="offeringDisplay">1</div>
+                            </div>
+                            <div class="quark transcendunlock">
+                                <img src="Pictures/Quark.png" title="Quark" />
+                                <div id="quarkDisplay">1</div>
+                            </div>
+                        </div>
+                        <div style="height: 50%" class="v-centered-children-children">
+                           <div class="mythos transcendunlock">
+                               <img src="Pictures/Mythos.png" title="Mythos" />
+                               <div id="mythosDisplay">1</div>
+                           </div>
+                           <div class="mythos transcendunlock">
+                               <img src="Pictures/MythosShard.png" title="Mythos" />
+                               <div id="mythosshardDisplay">1</div>
+                           </div>
+                           <div class="particle reincarnationunlock">
+                               <img src="Pictures/Particle.png" title="Particle" />
+                               <div id="particlesDisplay">1</div>
+                           </div>
+                           <div class="obtainium reincarnationunlock">
+                               <img src="Pictures/Obtainium.png" title="Obtainium" />
+                               <div id="obtainiumDisplay">1</div>
+                           </div>
+                        </div>
+                    </div>
+                    <div id="dead-space" style="width: 6px"></div>
+                    <div id="reset-container">
+                        <div id="reset-top-container">
+                            <div id="reset-table" class="distribute-items button-children">
+                                <img class="coinunlock4" id="prestigebtn" src="Pictures/Transparent Pics/Prestige.png" onmouseover="resetrepeat(1);" onclick="resetCheck('prestige')">
+                                <img class="prestigeunlock" id="transcendbtn" src="Pictures/Transparent Pics/Transcend.png"  onmouseover="resetrepeat(2)" onclick="resetCheck('transcend')">
+                                <img class="transcendunlock" id="reincarnatebtn" src="Pictures/Transparent Pics/Reincarnate.png" onmouseover="resetrepeat(4)" onclick="resetCheck('reincarnate')">
+                                <img class="transcendunlock" id="acceleratorboostbtn" src="Pictures/Transparent Pics/AcceleratorBoost.png" onmouseover="resetrepeat(5)" onclick="boostAccelerator()">
+                                <img class="transcendunlock" id="challengebtn" src="Pictures/Transparent Pics/Challenge.png"  onmouseover="resetrepeat(3)" onclick="resetCheck('challenge')">
+                                <img class="reincarnationunlock" id="reincarnatechallengebtn" src="Pictures/Transparent Pics/ChallengeReincarnation.png" onmouseover="resetrepeat(6)" onclick="resetCheck('reincarnationchallenge')">
+                                <img class="chal10" id="ascendbtn" src="Pictures/questionable.png" onmouseover="resetrepeat(7)">
+                            </div>
+                            <div id="reset-rewards" class="small-accent distribute-items v-centered-children-children">
+                                <div class="coin">
+                                    <img id="resetofferings1" src="" />
+                                    <div id="resetofferings2"></div>
+                                </div>
+                                <div class="coin">
+                                    <img id="resetcurrency1" src="" />
+                                    <div id="resetcurrency2"></div>
+                                </div>
+                                <div class="obtainium">
+                                    <img id="resetobtainium" src="" />
+                                    <div id="resetobtainium2"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="reset-bottom-container">
+                            <div id="resetinfo" class="h-centered"></div>
+                        </div>
+                    </div>
+                </div>
+                <div id="navbar-container" style="height: 19px">
+                    <div id="dead-space" style="width: 40px"></div>
+                    <div id="navbar" class="small-accent distribute-items h-centered-children button-children" style="width: 1010px">
+                        <div id="buildingstab" class="coin" onclick="toggleTabs('buildings')">Buildings</div>
+                        <div id="upgradestab" class="coin" onclick="toggleTabs('upgrades')">Upgrades</div>
+                        <div id="achievementstab" class="coinunlock4 quark" onclick="toggleTabs('achievements')">Achievements</div>
+                        <div id="prestigetab" class="prestigeunlock diamond" onclick="toggleTabs('prestige')">Prestige</div>
+                        <div id="runestab" class="prestigeunlock diamond" onclick="toggleTabs('runes')">Runes</div>
+                        <div id="transcensiontab" class="transcendunlock mythos" onclick="toggleTabs('transcension')">Transcension</div>
+                        <div id="challengetab" class="transcendunlock mythos" onclick="toggleTabs('challenges')">Challenges</div>
+                        <div id="reincarnationtab" class="reincarnationunlock particle" onclick="toggleTabs('reincarnation')">Reincarnation</div>
+                        <div id="researchtab" class="reincarnationunlock particle" onclick="toggleTabs('researches')">Research</div>
+                        <div id="anttab" class="chal8 ant" onclick="toggleTabs('ants')">Anthill</div>
+                        <div id="settingstab" class="quark" onclick="toggleTabs('settings')">Settings</div>
+                        <div id="shoptab" class="reincarnationunlock shop" onclick="toggleTabs('shop')">Shop</div>
+                    </div>
+                </div>
+
+                
+                <div id="tabs" style="height: 500px;">
+                    <div id="buildings" class="coin border-top">
+                        <!-- 20px down -->
+                        <div class="top-producers-dead-space"></div>
+                        <!-- 270px down -->
+                        <div style="height: 250px">
+                            <!-- 100px -->
+                            <div class="left-producers-dead-space"></div>
+                            <!-- 800px -->
+                            <div class="producers-space v-centered-children v-centered-children-children">
+                                <div class="producer">
+                                    <img id="coin1" src="Pictures/Tier1.png" />
+                                    <div id="buildtext1" class="producer-amount">Workers: 0 [+0]</div>
+                                    <div id="buycoin1" class="producer-buy button h-centered" onclick="buyProducer('first', 'Coin', 1);">Cost: 100 Coins.</div>
+                                    <div id="toggle1" class="auto button h-centered" onclick="toggleSettings(0)">Auto: On</div>
+                                    <div id="buildtext2" class="producer-cps">0 Coins/second [0%]</div>
+                                </div>
+                                <div class="producer coinunlock1">
+                                    <img id="coin2" src="Pictures/Tier2.png" />
+                                    <div id="buildtext3" class="producer-amount">Investments: 0 [+0]</div>
+                                    <div id="buycoin2" class="producer-buy button h-centered" onclick="buyProducer('second', 'Coin', 2);">Cost 2,000 Coins.</div>
+                                    <div id="toggle2" class="auto button h-centered" onclick="toggleSettings(1)">Auto: On</div>
+                                    <div id="buildtext4" class="producer-cps">0 Coins/second [0%]</div>
+                                </div>
+                                <div class="producer coinunlock2">
+                                    <img id="coin3" src="Pictures/Tier3.png" />
+                                    <div id="buildtext5" class="producer-amount"></div>
+                                    <div id="buycoin3" class="producer-buy button h-centered" onclick="buyProducer('third', 'Coin', 3);">Cost  Coins.</div>
+                                    <div id="toggle3" class="auto button h-centered" onclick="toggleSettings(2)">Auto: On</div>
+                                    <div id="buildtext6" class="producer-cps">0 Coins/second [0%]</div>
+                                </div>
+                                <div class="producer coinunlock3">
+                                    <img id="coin4" src="Pictures/Tier4.png" />
+                                    <div id="buildtext7" class="producer-amount"></div>
+                                    <div id="buycoin4" class="producer-buy button h-centered" onclick="buyProducer('fourth', 'Coin', 4);">Cost  Coins.</div>
+                                    <div id="toggle4" class="auto button h-centered" onclick="toggleSettings(3)">Auto: On</div>
+                                    <div id="buildtext8" class="producer-cps">0 Coins/second [0%]</div>
+                                </div>
+                                <div class="producer coinunlock4">
+                                    <img id="coin5" src="Pictures/Tier5.png" />
+                                    <div id="buildtext9" class="producer-amount"></div>
+                                    <div id="buycoin5" class="producer-buy button h-centered" onclick="buyProducer('fifth', 'Coin', 5);">Cost  Coins.</div>
+                                    <div id="toggle5" class="auto button h-centered" onclick="toggleSettings(4)">Auto: On</div>
+                                    <div id="buildtext10" class="producer-cps">0 Coins/second [0%]</div>
+                                </div>
+                            </div>
+                            <!-- 850px -->
+                            <div class="dead-space" style="width: 50px"></div>
+                            <!-- 970px -->
+                            <div style="width: 120px">
+                                <div class="buy-amounts-space-internal" class="coinunlock3">
+                                    <div id="coin-buy-amounts" class="buy-amounts button-children">
+                                        <img id="coinone" src="Pictures/Transparent Pics/CoinOne.png" style="background-color: green" onclick="toggleBuyAmount(1, 'coin');" />
+                                        <img id="cointen" src="Pictures/Transparent Pics/CoinTen.png" onclick="toggleBuyAmount(10,'coin')" />
+                                        <img id="coinhundred" src="Pictures/Transparent Pics/CoinHundred.png" onclick="toggleBuyAmount(100,'coin')" />
+                                        <img id="cointhousand" src="Pictures/Transparent Pics/CoinThousand.png" onclick="toggleBuyAmount(1000,'coin')" />
+                                    </div>
+                                    <div class="buy-amounts-description h-centered">Toggle amount to buy</div>
+                                </div>
+                                <div class="dead-space" style="height: 180px"></div>
+                            </div>
+                            <!-- 1050px -->
+                            <div class="dead-space" style="width: 80px"></div>
+                        </div>
+                        <!-- 420px down -->
+                        <div style="height: 150px">
+                            <!-- 100px -->
+                            <div class="left-producers-dead-space"></div>
+                            <!-- 1000px -->
+                            <div class="producers-space long-description v-centered-children v-centered-children-children">
+                                <div class="producer coinunlock1">
+                                    <img id="accelerator" src="Pictures/Accelerator.png" />
+                                    <div id="buildtext11" class="producer-amount" style="color: yellow">Accelerators: 0 [+0]</div>
+                                    <div id="buyaccelerator" class="producer-buy button h-centered" onclick="buyAccelerator()"></div>
+                                    <div id="toggle6" class="auto button h-centered" onclick="toggleSettings(5)">Auto: On</div>
+                                    <div id="buildtext12" class="producer-cps" style="color: cyan">Acceleration Factor: 10.0%. Acceleration Multiplier: 1.00x</div>
+                                </div>
+                                <div class="producer coinunlock3">
+                                    <img id="multiplier" src="Pictures/Multiplier.png" />
+                                    <div id="buildtext13" class="producer-amount" style="color: yellow">Multipliers: 0 [+0]</div>
+                                    <div id="buymultiplier" class="producer-buy button h-centered" onclick="buyMultiplier()">Cost: 500 Coins.</div>
+                                    <div id="toggle7" class="auto button h-centered" onclick="toggleSettings(6)">Auto: On</div>
+                                    <div id="buildtext14" class="producer-cps" style="color: pink">Multiplier Power: 2.000%. Multiplier: 1.00x</div>
+                                </div>
+                                <div class="producer prestigeunlock">
+                                    <img id="acceleratorboost" src="Pictures/AcceleratorBoost.png" />
+                                    <div id="buildtext15" class="producer-amount" style="color: cyan">Accelerators Boost: 0 [+0]</div>
+                                    <div id="buyacceleratorboost" class="producer-buy button h-centered" onclick="boostAccelerator()">Cost: 500 Coins.</div>
+                                    <div id="toggle8" class="auto button h-centered" onclick="toggleSettings(8)">Auto: On</div>
+                                    <div id="buildtext16" class="producer-cps" style="color: crimson">Next one adds 1.00% Acceleration Factor.</div>
+                                </div>
+                            </div>
+                            <!-- 1050px -->
+                            <div class="deadspace" style="width: 50px"></div>
+                        </div>
+                        <!-- 500px down -->
+                        <div class="h-centered-children" style="height: 80px">
+                            <div id="taxinfo" class="prestigeunlock" style="color: orange; height: 20px">Due to your excessive wealth, all coin production is divided by 1.00 to pay taxes!</div>
+                            <div id="buildinghotkeys" class="prestigeunlock" style="color: gray; height: 60px">Press [1], [2], [3], [4], or [5] to buy the corresponding tier starting from the top. Press [A] to buy Accelerator, [M] to buy Multiplier, or [B] to buy Accelerator Boost. Press [left arrow] or [right arrow] to switch tabs. Enjoy!</div>
+                        </div>
+                    </div>
+                    <div id="upgrades" class="h-centered-children-children coin">
+                        <!-- clears the top of upgrades 40px down-->
+                        <div class="dead-space" style="height: 40px"></div>
+                        <!-- 275px down -->
+                        <div id="upgrade-panels" style="height: 235px">
+                            <!-- 40px -->
+                            <div class="dead-space" style="width: 40px"></div>
+
+                            <div class="coin upgrade-panel">
+                                <div class="h-centered upgrade-title-image">
+                                    <img style="width: 30px; height: 30px" src="Pictures/Coin.png" />
+                                </div>
+                                <div id="cointext" class="h-centered upgrade-title">Coin Upgrades</div>
+                                <div class="image-panel" style="height: 125px">
+                                    <div>
+                                        <img src="Pictures/Transparent Pics/Coin1.png" id="upg1" onclick="buyUpgrades('coin', 1)" onmouseover="upgradedescriptions(1)" />
+                                        <img src="Pictures/Transparent Pics/Coin2.png" id="upg2" onclick="buyUpgrades('coin', 2)" onmouseover="upgradedescriptions(2)" />
+                                        <img src="Pictures/Transparent Pics/Coin3.png" id="upg3" onclick="buyUpgrades('coin', 3)" onmouseover="upgradedescriptions(3)" />
+                                        <img src="Pictures/Transparent Pics/Coin4.png" id="upg4" onclick="buyUpgrades('coin', 4)" onmouseover="upgradedescriptions(4)" />
+                                        <img src="Pictures/Transparent Pics/Coin5.png" id="upg5" onclick="buyUpgrades('coin', 5)" onmouseover="upgradedescriptions(5)" />
+                                    </div>
+                                    <div>
+                                        <img class="prestigeunlock" src="Pictures/Transparent Pics/Coin6.png" id="upg6" onclick="buyUpgrades('coin', 6)" onmouseover="upgradedescriptions(6)" />
+                                        <img class="prestigeunlock" src="Pictures/Transparent Pics/Coin7.png" id="upg7" onclick="buyUpgrades('coin', 7)" onmouseover="upgradedescriptions(7)" />
+                                        <img class="prestigeunlock" src="Pictures/Transparent Pics/Coin8.png" id="upg8" onclick="buyUpgrades('coin', 8)" onmouseover="upgradedescriptions(8)" />
+                                        <img class="prestigeunlock" src="Pictures/Transparent Pics/Coin9.png" id="upg9" onclick="buyUpgrades('coin', 9)" onmouseover="upgradedescriptions(9)" />
+                                        <img class="prestigeunlock" src="Pictures/Transparent Pics/Coin10.png" id="upg10" onclick="buyUpgrades('coin', 10)" onmouseover="upgradedescriptions(10)" />
+                                    </div>
+                                    <div>
+                                        <img class="generationunlock" src="Pictures/Transparent Pics/Coin11.png" id="upg11" onclick="buyUpgrades('coin', 11)" onmouseover="upgradedescriptions(11)" />
+                                        <img class="generationunlock" src="Pictures/Transparent Pics/Coin12.png" id="upg12" onclick="buyUpgrades('coin', 12)" onmouseover="upgradedescriptions(12)" />
+                                        <img class="generationunlock" src="Pictures/Transparent Pics/Coin13.png" id="upg13" onclick="buyUpgrades('coin', 13)" onmouseover="upgradedescriptions(13)" />
+                                        <img class="generationunlock" src="Pictures/Transparent Pics/Coin14.png" id="upg14" onclick="buyUpgrades('coin', 14)" onmouseover="upgradedescriptions(14)" />
+                                        <img class="generationunlock" src="Pictures/Transparent Pics/Coin15.png" id="upg15" onclick="buyUpgrades('coin', 15)" onmouseover="upgradedescriptions(15)" />
+                                    </div>
+                                    <div>
+                                        <img class="transcendunlock" src="Pictures/Transparent Pics/Coin16.png" id="upg16" onclick="buyUpgrades('coin', 16)" onmouseover="upgradedescriptions(16)" />
+                                        <img class="transcendunlock" src="Pictures/Transparent Pics/Coin17.png" id="upg17" onclick="buyUpgrades('coin', 17)" onmouseover="upgradedescriptions(17)" />
+                                        <img class="transcendunlock" src="Pictures/Transparent Pics/Coin18.png" id="upg18" onclick="buyUpgrades('coin', 18)" onmouseover="upgradedescriptions(18)" />
+                                        <img class="transcendunlock" src="Pictures/Transparent Pics/Coin19.png" id="upg19" onclick="buyUpgrades('coin', 19)" onmouseover="upgradedescriptions(19)" />
+                                        <img class="transcendunlock" src="Pictures/Transparent Pics/Coin20.png" id="upg20" onclick="buyUpgrades('coin', 20)" onmouseover="upgradedescriptions(20)" />
+                                    </div>
+                                </div>
+                                <div class="auto button h-centered" id="shoptogglecoin" onclick="toggleShops(1)" style="border:2px solid green">Auto: ON</div>
+                            </div>
+
+                            <div class="upgrade-dead-space"></div>
+
+                            <div class="diamond upgrade-panel">
+                                <div class="h-centered upgrade-title-image">
+                                    <img style="width: 30px; height: 30px" src="Pictures/Diamond.png" />
+                                </div>
+                                <div id="cointext" class="h-centered upgrade-title">Diamond Upgrades</div>
+                                <div class="image-panel" style="height: 125px">
+                                    <div>
+                                        <img src="Pictures/Transparent Pics/Diamond1.png" id="upg21" onclick="buyUpgrades('prestige', 21)" onmouseover="upgradedescriptions(21)">
+                                        <img src="Pictures/Transparent Pics/Diamond2.png" id="upg22" onclick="buyUpgrades('prestige', 22)" onmouseover="upgradedescriptions(22)">
+                                        <img src="Pictures/Transparent Pics/Diamond3.png" id="upg23" onclick="buyUpgrades('prestige', 23)" onmouseover="upgradedescriptions(23)">
+                                        <img src="Pictures/Transparent Pics/Diamond4.png" id="upg24" onclick="buyUpgrades('prestige', 24)" onmouseover="upgradedescriptions(24)">
+                                        <img src="Pictures/Transparent Pics/Diamond5.png" id="upg25" onclick="buyUpgrades('prestige', 25)" onmouseover="upgradedescriptions(25)">
+                                    </div>
+                                    <div>
+                                        <img src="Pictures/Transparent Pics/Diamond6.png" id="upg26" onclick="buyUpgrades('prestige', 26)" onmouseover="upgradedescriptions(26)" />
+                                        <img src="Pictures/Transparent Pics/Diamond7.png" id="upg27" onclick="buyUpgrades('prestige', 27)" onmouseover="upgradedescriptions(27)" />
+                                        <img src="Pictures/Transparent Pics/Diamond8.png" id="upg28" onclick="buyUpgrades('prestige', 28)" onmouseover="upgradedescriptions(28)" />
+                                        <img src="Pictures/Transparent Pics/Diamond9.png" id="upg29" onclick="buyUpgrades('prestige', 29)" onmouseover="upgradedescriptions(29)" />
+                                        <img src="Pictures/Transparent Pics/Diamond10.png" id="upg30" onclick="buyUpgrades('prestige', 30)" onmouseover="upgradedescriptions(30)" />
+                                    </div>
+                                    <div>
+                                        <img class="transcendunlock" src="Pictures/Transparent Pics/Diamond11.png" id="upg31" onclick="buyUpgrades('prestige', 31)" onmouseover="upgradedescriptions(31)">
+                                        <img class="transcendunlock" src="Pictures/Transparent Pics/Diamond12.png" id="upg32" onclick="buyUpgrades('prestige', 32)" onmouseover="upgradedescriptions(32)">
+                                        <img class="transcendunlock" src="Pictures/Transparent Pics/Diamond13.png" id="upg33" onclick="buyUpgrades('prestige', 33)" onmouseover="upgradedescriptions(33)">
+                                        <img class="transcendunlock" src="Pictures/Transparent Pics/Diamond14.png" id="upg34" onclick="buyUpgrades('prestige', 34)" onmouseover="upgradedescriptions(34)">
+                                        <img class="transcendunlock" src="Pictures/Transparent Pics/Diamond15.png" id="upg35" onclick="buyUpgrades('prestige', 35)" onmouseover="upgradedescriptions(35)">
+                                    </div>
+                                    <div>
+                                        <img class="reincarnationunlock" src="Pictures/Transparent Pics/Diamond16.png" id="upg36" onclick="buyUpgrades('prestige', 36)" onmouseover="upgradedescriptions(36)">
+                                        <img class="reincarnationunlock" src="Pictures/Transparent Pics/Diamond17.png" id="upg37" onclick="buyUpgrades('prestige', 37)" onmouseover="upgradedescriptions(37)">
+                                        <img class="chal7" src="Pictures/Transparent Pics/Diamond18.png" id="upg38" onclick="buyUpgrades('prestige', 38)" onmouseover="upgradedescriptions(38)">
+                                        <img class="chal8" src="Pictures/Transparent Pics/Diamond19.png" id="upg39" onclick="buyUpgrades('prestige', 39)" onmouseover="upgradedescriptions(39)">
+                                        <img class="chal9" src="Pictures/Transparent Pics/Diamond20.png" id="upg40" onclick="buyUpgrades('prestige', 40)" onmouseover="upgradedescriptions(40)">
+                                    </div>
+                                </div>
+                                <div class="auto button h-centered" id="prestigetogglecoin" onclick="toggleShops(2)" style="border:2px solid green">Auto: ON</div>
+                            </div>
+
+                            <div class="upgrade-dead-space"></div>
+
+                            <div class="mythos upgrade-panel">
+                                <div class="h-centered upgrade-title-image">
+                                    <img style="width: 30px; height: 30px" src="Pictures/Mythos.png" />
+                                </div>
+                                <div id="cointext" class="h-centered upgrade-title">Mythos Upgrades</div>
+                                <div class="image-panel" style="height: 125px">
+                                    <div>
+                                        <img src="Pictures/Transparent Pics/Mythos1.png" id="upg41" onclick="buyUpgrades('transcend', 41)" onmouseover="upgradedescriptions(41)">
+                                        <img src="Pictures/Transparent Pics/Mythos2.png" id="upg42" onclick="buyUpgrades('transcend', 42)" onmouseover="upgradedescriptions(42)">
+                                        <img src="Pictures/Transparent Pics/Mythos3.png" id="upg43" onclick="buyUpgrades('transcend', 43)" onmouseover="upgradedescriptions(43)">
+                                        <img src="Pictures/Transparent Pics/Mythos4.png" id="upg44" onclick="buyUpgrades('transcend', 44)" onmouseover="upgradedescriptions(44)">
+                                        <img src="Pictures/Transparent Pics/Mythos5.png" id="upg45" onclick="buyUpgrades('transcend', 45)" onmouseover="upgradedescriptions(45)">
+                                    </div>
+                                    <div>
+                                        <img src="Pictures/Transparent Pics/Mythos6.png" id="upg46" onclick="buyUpgrades('transcend', 46)" onmouseover="upgradedescriptions(46)">
+                                        <img src="Pictures/Transparent Pics/Mythos7.png" id="upg47" onclick="buyUpgrades('transcend', 47)" onmouseover="upgradedescriptions(47)">
+                                        <img src="Pictures/Transparent Pics/Mythos8.png" id="upg48" onclick="buyUpgrades('transcend', 48)" onmouseover="upgradedescriptions(48)">
+                                        <img src="Pictures/Transparent Pics/Mythos9.png" id="upg49" onclick="buyUpgrades('transcend', 49)" onmouseover="upgradedescriptions(49)">
+                                        <img src="Pictures/Transparent Pics/Mythos10.png" id="upg50" onclick="buyUpgrades('transcend', 50)" onmouseover="upgradedescriptions(50)">
+                                    </div>
+                                    <div>
+                                        <img class="reincarnationunlock" src="Pictures/Transparent Pics/Mythos11.png" id="upg51" onclick="buyUpgrades('transcend', 51)" onmouseover="upgradedescriptions(51)">
+                                        <img class="reincarnationunlock" src="Pictures/Transparent Pics/Mythos12.png" id="upg52" onclick="buyUpgrades('transcend', 52)" onmouseover="upgradedescriptions(52)">
+                                        <img class="reincarnationunlock" src="Pictures/Transparent Pics/Mythos13.png" id="upg53" onclick="buyUpgrades('transcend', 53)" onmouseover="upgradedescriptions(53)">
+                                        <img class="reincarnationunlock" src="Pictures/Transparent Pics/Mythos14.png" id="upg54" onclick="buyUpgrades('transcend', 54)" onmouseover="upgradedescriptions(54)">
+                                        <img class="reincarnationunlock" src="Pictures/Transparent Pics/Mythos15.png" id="upg55" onclick="buyUpgrades('transcend', 55)" onmouseover="upgradedescriptions(55)">
+                                    </div>
+                                    <div>
+                                        <img class="reincarnationunlock" src="Pictures/Transparent Pics/Mythos16.png" id="upg56" onclick="buyUpgrades('transcend', 56)" onmouseover="upgradedescriptions(56)">
+                                        <img class="reincarnationunlock" src="Pictures/Transparent Pics/Mythos17.png" id="upg57" onclick="buyUpgrades('transcend', 57)" onmouseover="upgradedescriptions(57)">
+                                        <img class="reincarnationunlock" src="Pictures/Transparent Pics/Mythos18.png" id="upg58" onclick="buyUpgrades('transcend', 58)" onmouseover="upgradedescriptions(58)">
+                                        <img class="reincarnationunlock" src="Pictures/Transparent Pics/Mythos19.png" id="upg59" onclick="buyUpgrades('transcend', 59)" onmouseover="upgradedescriptions(59)">
+                                        <img class="reincarnationunlock" src="Pictures/Transparent Pics/Mythos20.png" id="upg60" onclick="buyUpgrades('transcend', 60)" onmouseover="upgradedescriptions(60)">
+                                    </div>
+                                </div>
+                                <div class="auto button h-centered" id="shoptoggletranscend" onclick="toggleShops(3)" style="border:2px solid green">Auto: ON</div>
+                            </div>
+
+                            <div class="upgrade-dead-space"></div>
+
+                            <div class="generator upgrade-panel">
+                                <div class="h-centered upgrade-title-image">
+                                    <img style="width: 30px; height: 30px" src="Pictures/Generators.png" />
+                                </div>
+                                <div id="cointext" class="h-centered upgrade-title">Generator Shop</div>
+                                <div class="image-panel" style="height: 125px">
+                                    <div>
+                                        <img id="upg101" src="Pictures/Transparent Pics/GeneratorOne.png" onclick="buyGenerator(1)" onmouseover="upgradedescriptions(101)"></td>
+                                        <img id="upg102" class="generationunlock" src="Pictures/Transparent Pics/GeneratorTwo.png"  onclick="buyGenerator(2)" onmouseover="upgradedescriptions(102)">
+                                        <img id="upg103" class="generationunlock" src="Pictures/Transparent Pics/GeneratorThree.png"  onclick="buyGenerator(3)" onmouseover="upgradedescriptions(103)">
+                                        <img id="upg104" class="generationunlock" src="Pictures/Transparent Pics/GeneratorFour.png"  onclick="buyGenerator(4)" onmouseover="upgradedescriptions(104)">
+                                        <img id="upg105" class="generationunlock" src="Pictures/Transparent Pics/GeneratorFive.png"  onclick="buyGenerator(5)" onmouseover="upgradedescriptions(105)">
+                                    </div>
+                                    <div>
+                                        <img id="upg106" class="transcendunlock" src="Pictures/Transparent Pics/GeneratorSix.png" onmouseover="upgradedescriptions(106)" onclick="buyGenerator(6)">
+                                        <img id="upg107" class="transcendunlock" src="Pictures/Transparent Pics/GeneratorSeven.png" onmouseover="upgradedescriptions(107)" onclick="buyGenerator(7)">
+                                        <img id="upg108" class="transcendunlock" src="Pictures/Transparent Pics/GeneratorEight.png" onmouseover="upgradedescriptions(108)" onclick="buyGenerator(8)">
+                                        <img id="upg109" class="transcendunlock" src="Pictures/Transparent Pics/GeneratorNine.png" onmouseover="upgradedescriptions(109)" onclick="buyGenerator(9)">
+                                        <img id="upg110" class="transcendunlock" src="Pictures/Transparent Pics/GeneratorTen.png" onmouseover="upgradedescriptions(110)" onclick="buyGenerator(10)">
+                                    </div>
+                                    <div>
+                                        <img id="upg111" class="transcendunlock" src="Pictures/Transparent Pics/GeneratorEleven.png" onmouseover="upgradedescriptions(111)" onclick="buyGenerator(11)">
+                                        <img id="upg112" class="transcendunlock" src="Pictures/Transparent Pics/GeneratorTwelve.png" onmouseover="upgradedescriptions(112)" onclick="buyGenerator(12)">
+                                        <img id="upg113" class="transcendunlock" src="Pictures/Transparent Pics/GeneratorThirteen.png" onmouseover="upgradedescriptions(113)" onclick="buyGenerator(13)">
+                                        <img id="upg114" class="transcendunlock" src="Pictures/Transparent Pics/GeneratorFourteen.png" onmouseover="upgradedescriptions(114)" onclick="buyGenerator(14)">
+                                        <img id="upg115" class="transcendunlock" src="Pictures/Transparent Pics/GeneratorFifteen.png" onmouseover="upgradedescriptions(115)" onclick="buyGenerator(15)">
+                                    </div>
+                                    <div>
+                                        <img id="upg116" class="transcendunlock" src="Pictures/Transparent Pics/GeneratorSixteen.png" onmouseover="upgradedescriptions(116)" onclick="buyGenerator(16)">
+                                        <img  id="upg117" class="transcendunlock" src="Pictures/Transparent Pics/GeneratorSeventeen.png" onmouseover="upgradedescriptions(117)" onclick="buyGenerator(17)">
+                                        <img id="upg118" class="transcendunlock" src="Pictures/Transparent Pics/GeneratorEighteen.png" onmouseover="upgradedescriptions(118)" onclick="buyGenerator(18)">
+                                        <img id="upg119" class="transcendunlock" src="Pictures/Transparent Pics/GeneratorNineteen.png" onmouseover="upgradedescriptions(119)" onclick="buyGenerator(19)">
+                                        <img id="upg120" class="transcendunlock" src="Pictures/Transparent Pics/GeneratorTwenty.png" onmouseover="upgradedescriptions(120)" onclick="buyGenerator(20)">
+                                    </div>
+                                </div>
+                                <div class="auto button h-centered" id="shoptogglegenerator" onclick="toggleShops(4)" style="border:2px solid green">Auto: ON</div>
+                            </div>
+
+                            <div class="upgrade-dead-space"></div>
+
+                            <div class="automation upgrade-panel">
+                                <div class="h-centered upgrade-title-image">
+                                    <img style="width: 30px; height: 30px" src="Pictures/Automation.png" />
+                                </div>
+                                <div id="cointext" class="h-centered upgrade-title">Automation Shop</div>
+                                <div class="image-panel" style="height: 125px">
+                                    <div>
+                                        <img id="upg81" src="Pictures/Transparent Pics/AutomationOne.png" onclick="buyAutobuyers(1)" onmouseover="upgradedescriptions(81)">
+                                        <img id="upg82" src="Pictures/Transparent Pics/AutomationTwo.png" onclick="buyAutobuyers(2)" onmouseover="upgradedescriptions(82)">
+                                        <img id="upg83" src="Pictures/Transparent Pics/AutomationThree.png" onclick="buyAutobuyers(3)" onmouseover="upgradedescriptions(83)">
+                                        <img id="upg84" src="Pictures/Transparent Pics/AutomationFour.png" onclick="buyAutobuyers(4)" onmouseover="upgradedescriptions(84)">
+                                        <img id="upg85" src="Pictures/Transparent Pics/AutomationFive.png" onclick="buyAutobuyers(5)" onmouseover="upgradedescriptions(85)">
+                                    </div>
+                                    <div>
+                                        <img id="upg86" src="Pictures/Transparent Pics/AutomationSix.png" onclick="buyAutobuyers(6)" onmouseover="upgradedescriptions(86)">
+                                        <img id="upg87" src="Pictures/Transparent Pics/AutomationSeven.png" onclick="buyAutobuyers(7)" onmouseover="upgradedescriptions(87)">
+                                        <img id="upg88" class="transcendunlock" id="auto8" src="Pictures/Transparent Pics/AutomationEight.png" onclick="buyAutobuyers(8)" onmouseover="upgradedescriptions(88)">
+                                        <img id="upg89" class="transcendunlock" id="auto9" src="Pictures/Transparent Pics/AutomationNine.png" onclick="buyAutobuyers(9)" onmouseover="upgradedescriptions(89)">
+                                        <img id="upg90" class="transcendunlock" id="auto10" src="Pictures/Transparent Pics/AutomationTen.png" onclick="buyAutobuyers(10)" onmouseover="upgradedescriptions(90)">
+                                    </div>
+                                    <div>
+                                        <img id="upg91" class="transcendunlock" src="Pictures/Transparent Pics/AutomationEleven.png" onclick="buyAutobuyers(11)" onmouseover="upgradedescriptions(91)">
+                                        <img id="upg92" class="transcendunlock" src="Pictures/Transparent Pics/AutomationTwelve.png" onclick="buyAutobuyers(12)" onmouseover="upgradedescriptions(92)">
+                                        <img id="upg93" class="transcendunlock" src="Pictures/Transparent Pics/AutomationThirteen.png" onclick="buyAutobuyers(13)" onmouseover="upgradedescriptions(93)">
+                                        <img id="upg94" class="reincarnationunlock" src="Pictures/Transparent Pics/AutomationFourteen.png" onclick="buyAutobuyers(14)" onmouseover="upgradedescriptions(94)">
+                                        <img id="upg95" class="reincarnationunlock" src="Pictures/Transparent Pics/AutomationFifteen.png" onclick="buyAutobuyers(15)" onmouseover="upgradedescriptions(95)">
+                                    </div>
+                                    <div>
+                                        <img id="upg96" class="reincarnationunlock" src="Pictures/Transparent Pics/AutomationSixteen.png" onclick="buyAutobuyers(16)" onmouseover="upgradedescriptions(96)">
+                                        <img id="upg97" class="reincarnationunlock" src="Pictures/Transparent Pics/AutomationSeventeen.png" onclick="buyAutobuyers(17)" onmouseover="upgradedescriptions(97)">
+                                        <img id="upg98" class="reincarnationunlock" src="Pictures/Transparent Pics/AutomationEighteen.png" onclick="buyAutobuyers(18)" onmouseover="upgradedescriptions(98)">
+                                        <img id="upg99" class="reincarnationunlock" src="Pictures/Transparent Pics/AutomationNineteen.png" onclick="buyAutobuyers(19)" onmouseover="upgradedescriptions(99)">
+                                        <img id="upg100" class="reincarnationunlock" src="Pictures/Transparent Pics/AutomationTwenty.png" onclick="buyAutobuyers(20)" onmouseover="upgradedescriptions(100)">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="upgrade-dead-space"></div>
+                            
+                            <div class="particle upgrade-panel">
+                                <div class="h-centered upgrade-title-image">
+                                    <img style="width: 30px; height: 30px" src="Pictures/Particle.png" />
+                                </div>
+                                <div id="cointext" class="h-centered upgrade-title">Particles Upgrades</div>
+                                <div class="image-panel" style="height: 125px">
+                                    <div>
+                                        <img class="reinrow1" src="Pictures/Transparent Pics/Particle1.png" id="upg61" onclick="buyUpgrades('reincarnation', 61)" onmouseover="upgradedescriptions(61)">
+                                        <img class="reinrow1" src="Pictures/Transparent Pics/Particle2.png" id="upg62" onclick="buyUpgrades('reincarnation', 62)" onmouseover="upgradedescriptions(62)">
+                                        <img class="reinrow1" src="Pictures/Transparent Pics/Particle3.png" id="upg63" onclick="buyUpgrades('reincarnation', 63)" onmouseover="upgradedescriptions(63)">
+                                        <img class="reinrow1" src="Pictures/Transparent Pics/Particle4.png" id="upg64" onclick="buyUpgrades('reincarnation', 64)" onmouseover="upgradedescriptions(64)">
+                                        <img class="reinrow1" src="Pictures/Transparent Pics/Particle5.png" id="upg65" onclick="buyUpgrades('reincarnation', 65)" onmouseover="upgradedescriptions(65)">
+                                    </div>
+                                    <div>
+                                        <img class="reinrow2" src="Pictures/Transparent Pics/Particle6.png" id="upg66" onclick="buyUpgrades('reincarnation', 66)" onmouseover="upgradedescriptions(66)">
+                                        <img class="reinrow2" src="Pictures/Transparent Pics/Particle7.png" id="upg67" onclick="buyUpgrades('reincarnation', 67)" onmouseover="upgradedescriptions(67)">
+                                        <img class="reinrow2" src="Pictures/Transparent Pics/Particle8.png" id="upg68" onclick="buyUpgrades('reincarnation', 68)" onmouseover="upgradedescriptions(68)">
+                                        <img class="reinrow2" src="Pictures/Transparent Pics/Particle9.png" id="upg69" onclick="buyUpgrades('reincarnation', 69)" onmouseover="upgradedescriptions(69)">
+                                        <img class="reinrow2" src="Pictures/Transparent Pics/Particle10.png" id="upg70" onclick="buyUpgrades('reincarnation', 70)" onmouseover="upgradedescriptions(70)">
+                                    </div>
+                                    <div>
+                                        <img class="reinrow3" src="Pictures/Transparent Pics/Particle11.png" id="upg71" onclick="buyUpgrades('reincarnation', 71)" onmouseover="upgradedescriptions(71)">
+                                        <img class="reinrow3" src="Pictures/Transparent Pics/Particle12.png" id="upg72" onclick="buyUpgrades('reincarnation', 72)" onmouseover="upgradedescriptions(72)">
+                                        <img class="reinrow3" src="Pictures/Transparent Pics/Particle13.png" id="upg73" onclick="buyUpgrades('reincarnation', 73)" onmouseover="upgradedescriptions(73)">
+                                        <img class="reinrow3" src="Pictures/Transparent Pics/Particle14.png" id="upg74" onclick="buyUpgrades('reincarnation', 74)" onmouseover="upgradedescriptions(74)">
+                                        <img class="reinrow3" src="Pictures/Transparent Pics/Particle15.png" id="upg75" onclick="buyUpgrades('reincarnation', 75)" onmouseover="upgradedescriptions(75)">
+                                    </div>
+                                    <div>
+                                        <img class="reinrow4" src="Pictures/Transparent Pics/Particle16.png" id="upg76" onclick="buyUpgrades('reincarnation', 76)" onmouseover="upgradedescriptions(76)">
+                                        <img class="reinrow4" src="Pictures/Transparent Pics/Particle17.png" id="upg77" onclick="buyUpgrades('reincarnation', 77)" onmouseover="upgradedescriptions(77)">
+                                        <img class="reinrow4" src="Pictures/Transparent Pics/Particle18.png" id="upg78" onclick="buyUpgrades('reincarnation', 78)" onmouseover="upgradedescriptions(78)">
+                                        <img class="reinrow4" src="Pictures/Transparent Pics/Particle19.png" id="upg79" onclick="buyUpgrades('reincarnation', 79)" onmouseover="upgradedescriptions(79)">
+                                        <img class="reinrow4" src="Pictures/Transparent Pics/Particle20.png" id="upg80" onclick="buyUpgrades('reincarnation', 80)" onmouseover="upgradedescriptions(80)">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="height: 225px" class="h-centered">
+                            <div id="upgradedescription" style="color: beige; height: 16px">Hover over an upgrade icon to see details!</div>
+                            <div id="upgradecost" style="height: 16px"></div>
+                            <div style="height: 40px"><div id="upgradeeffect" style="width: 350px" class="obtainium h-centered"></div></div>
+                            <div class="auto button v-centered" id="toggle9" onclick="toggleSettings(8)" style="border: 2px solid green; width: 110px;">Hover-To-Buy: Off</div>
+
+                            <div class="dead-space" style="height: 136px"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                
+            </div>
+        </main>
 <img src="Pictures/preloader.png" id="preload">
 <div id="offlineprogressbar">
 <p id="offlineTimer" style="color: plum"></p>
 <p id="progressbardescription" style="color: yellow">Loading Offline Progress...</p>
 <div id="offlineprogressdone"></div>
-</div>    
-<div id="navbar">
-
-    <div id="resourcesrow">
-
-        <table id="resourcestable">
-            <tr>
-                <td style="font-size:0;"><img src="Pictures/Coin.png" title='Coin' style="font-size:0;"></td>
-                <td width=120px;><p id="coinDisplay" style="color:gold;">1</p></td>
-                <td style="font-size:0;"><img  class="prestigeunlock" src="Pictures/Diamond.png" title='Diamond'  style="font-size:0;"></td>
-                <td width=120px;><p class="prestigeunlock" id="diamondDisplay" style="color: cyan">1</p></td>
-                <td style="font-size:0;"><img  class="prestigeunlock" src="Pictures/Offering.png" title='Offering'  style="font-size:0;"></td>
-                <td width=120px;><p class="prestigeunlock" id="offeringDisplay"  style="color:gold;">1</p></td>
-                <td style="font-size:0;"><img class="transcendunlock" src="Pictures/Quark.png" title='Quark'></td>
-                <td width="120px;"><p class="transcendunlock" id="quarkDisplay" style="color:white">1</p><td>
-
-
-            </tr>
-            <tr>
-                <td style="font-size:0;"> <img class="transcendunlock" src="Pictures/Mythos.png" title='Mythos' style="font-size:0;"></td>
-                <td> <p class="transcendunlock" id="mythosDisplay" style="color:plum;">1</p></td>
-                <td style="font-size:0;"> <img class="transcendunlock" src="Pictures/MythosShard.png" title='Mythos Shard' style="font-size:0;"></td>
-                <td> <p class="transcendunlock" id="mythosshardDisplay" style="color:plum;">1</p></td>
-                <td style="font-size:0;"> <img class="reincarnationunlock" src="Pictures/Particle.png" title='Particle'  style="font-size:0;"></td>
-                <td> <p class="reincarnationunlock" id="particlesDisplay" style="color:limegreen;">1</p></td>
-                <td style="font-size:0;"><img class="reincarnationunlock" src="Pictures/Obtainium.png" title='Obtanium'></td>
-                <td><p class="reincarnationunlock" id="obtainiumDisplay" style="color:pink">1</p><td>
-
-            </tr>
-        </table>  
-       
-       
-
-    </div>
-    <div id="resetrow">
-
-        <table id="resettable">
-            <tr>
-            <td><img class="coinunlock4" id="prestigebtn" src="Pictures/Transparent Pics/Prestige.png" style="cursor: pointer" onmouseover="resetrepeat(1);" onclick="resetCheck('prestige')"></td>
-            <td><img class="prestigeunlock" id="transcendbtn" src="Pictures/Transparent Pics/Transcend.png" style="cursor:pointer"  onmouseover="resetrepeat(2)" onclick="resetCheck('transcend')"></td>
-            <td><img class="transcendunlock" id="reincarnatebtn" src="Pictures/Transparent Pics/Reincarnate.png" style="cursor:pointer" onmouseover="resetrepeat(4)" onclick="resetCheck('reincarnate')"></td>
-            <td><img class="transcendunlock" id="acceleratorboostbtn" src="Pictures/Transparent Pics/AcceleratorBoost.png" onmouseover="resetrepeat(5)" style="cursor:pointer" onclick="boostAccelerator()"></td>
-            <td><img class="transcendunlock" id="challengebtn" src="Pictures/Transparent Pics/Challenge.png"  onmouseover="resetrepeat(3)" onclick="resetCheck('challenge')" style="cursor:pointer"></td>
-            <td><img class="reincarnationunlock" id="reincarnatechallengebtn" src="Pictures/Transparent Pics/ChallengeReincarnation.png" onmouseover="resetrepeat(6)" onclick="resetCheck('reincarnationchallenge')" style="cursor:pointer"></td>
-            <td><img class="chal10" id="ascendbtn" src="Pictures/questionable.png" onmouseover="resetrepeat(7)" style="cursor:pointer"></td>
-            </tr>
-        </table>
-        <p id="resetinfo"></p>
-        <table id="resetrewards" style="display: block;">
-            <tr>
-            <td>
-        <img id="resetofferings1" src="" style="font-size: 0;">
-            </td>
-            <td>
-        <p id="resetofferings2" style="color: gold"></p>        
-            </td>
-            <td>
-        <img id="resetcurrency1" src="" style="font-size: 0;">       
-            </td>
-            <td>
-        <p id="resetcurrency2" style="color:gold"></p>
-            </td>
-            <td>
-        <img id="resetobtainium" src="">
-            </td>
-            <td>
-        <p id="resetobtainium2" style="color:pink" style="font-size: 0;"></p>
-            </td>
-        </tr>
-        </table>
-        <p id="resetinfo" style="color:white"></p>
-    </div>
-    
-    <div id="tabrow">
-        
-        <p id="buildingstab" style="color:white; cursor: pointer;" onclick="toggleTabs('buildings')">Buildings</p> 
-        <p id="upgradestab" style="color:white; cursor: pointer;" onclick="toggleTabs('upgrades')">Upgrades</p>      
-        <p id="settingstab" style="color:white; cursor: pointer;" onclick="toggleTabs('settings')">Settings</p>       
-        <p class="coinunlock4" id="achievementstab" style="color:white; cursor: pointer;" onclick="toggleTabs('achievements')">Achievements</p>
-        <p class="prestigeunlock" id="prestigetab" style="color: white; cursor: pointer;" onclick="toggleTabs('prestige')">Prestige</p>      
-        <p class="prestigeunlock" id="runestab" style="color: white; cursor: pointer;" onclick="toggleTabs('runes')">Runes</p>
-        <p class="transcendunlock" id="transcensiontab" style="color:white; cursor: pointer;" onclick="toggleTabs('transcension')">Transcension</p>      
-        <p class="transcendunlock" id="challengetab" style="color:white; cursor: pointer;" onclick="toggleTabs('challenges')">Challenges</p>  
-        <p class="reincarnationunlock" id="reincarnationtab" style="color:white; cursor: pointer;" onclick="toggleTabs('reincarnation')">Reincarnation</p>
-        <p class="reincarnationunlock" id="researchtab" style="color:white; cursor: pointer;" onclick="toggleTabs('researches')">Research</p>  
-        <p class="reincarnationunlock" id="shoptab" style="color: white; cursor: pointer;" onclick="toggleTabs('shop')">Shop</p> 
-        <p class="chal8" id="anttab" style="color: white; cursor: pointer;" onclick="toggleTabs('ants')">Anthill</p>
-    </div>
 </div>
-
-<div id="buildings">
-
-    <div id="buyamountcoin">
-        <table class="coinunlock3" id="coinbuyamount">
-            <tr>
-            <td><img  id="coinone" src="Pictures/Transparent Pics/CoinOne.png" style="cursor:pointer; background-color: green;" onclick="toggleBuyAmount(1,'coin')"></td>
-            <td><img  id="cointen" src="Pictures/Transparent Pics/CoinTen.png"  style="cursor:pointer;" onclick="toggleBuyAmount(10,'coin')"></td>    
-            <td><img  id="coinhundred" src="Pictures/Transparent Pics/CoinHundred.png"  style="cursor:pointer;" onclick="toggleBuyAmount(100,'coin')"></td>  
-            <td><img  id="cointhousand" src="Pictures/Transparent Pics/CoinThousand.png"  style="cursor:pointer;" onclick="toggleBuyAmount(1000,'coin')"></td>              
-            </tr>
-        </table>
-        <p class="coinunlock3" id="togglecoinbuy">Toggle amount to buy</p>
-    </div>
-
-    <div id="buildingrow1">
-        <img id="coin1" src="Pictures/Tier1.png">
-        <img class="coinunlock1" id="coin2" src="Pictures/Tier2.png">
-        <img class="coinunlock2" id="coin3" src="Pictures/Tier3.png">
-        <img class="coinunlock3" id="coin4" src="Pictures/Tier4.png">
-        <img class="coinunlock4" id="coin5" src="Pictures/Tier5.png">
-        <img class="coinunlock1" id="accelerator" src="Pictures/Accelerator.png">
-        <img class="coinunlock3" id="multiplier" src="Pictures/Multiplier.png">
-        <img class="prestigeunlock" id="acceleratorboost" src="Pictures/AcceleratorBoost.png">
-    </div>
-    
-    <div id="buildingtext">
-        <p id=buildtext1 style="color: gold">Workers: 321495 [+1.49e+391945]</p>
-        <button id="buycoin1" onclick="buyProducer('first', 'Coin', 1)" style="background-color: #070707;">Cost: 100 Coins.</button>
-        <p id="buildtext2" style="color: gold">100 Coins/second [100%]</p>
-        <p class="coinunlock1" id="buildtext3" style="color: gold">Investments: 0 [+0]</p> 
-        <button class="coinunlock1" id="buycoin2" onclick="buyProducer('second','Coin', 2)" style="background-color: #070707;">Cost: 2e3 Coins.</button>
-        <p class="coinunlock1" id="buildtext4" style="color: gold">0 Coins/second [0%]</p> 
-        <p class="coinunlock2" id="buildtext5" style="color: gold">Printers: 0 [+0]</p> 
-        <button class="coinunlock2" id="buycoin3" onclick="buyProducer('third', 'Coin', 3)" style="background-color: #070707;">Cost: 4e4 Coins.</button>
-        <p class="coinunlock2" id="buildtext6" style="color: gold">0 Coins/second [0%]</p> 
-        <p class="coinunlock3" id="buildtext7" style="color: gold">Coin Mints: 0 [+0]</p> 
-        <button class="coinunlock3" id="buycoin4" onclick="buyProducer('fourth', 'Coin', 4)" style="background-color: #070707;">Cost: 8e5 Coins.</button>
-        <p class="coinunlock3" id="buildtext8" style="color: gold">0 Coins/second [0%]</p> 
-        <p class="coinunlock4" id="buildtext9" style="color: gold">Alchemies: 0 [+0]</p> 
-        <button class="coinunlock4" id="buycoin5" onclick="buyProducer('fifth', 'Coin', 5)" style="background-color: #070707;">Cost: 1.6e7 Coins.</button>
-        <p class="coinunlock4" id="buildtext10" style="color: gold">0 Coins/second [0%]</p> 
-        <p class="coinunlock1" id="buildtext11" style="color: yellow">Accelerators: 0 [+0]</p>
-        <button class="coinunlock1" id="buyaccelerator" onclick="buyAccelerator()" style="background-color: #070707;">Cost: 500 Coins.</button>
-        <p class="coinunlock1" id="buildtext12" style="color: cyan">Acceleration Factor: 10.0%. Acceleration Multiplier: 1.00x</p>
-        <p class="coinunlock3" id="buildtext13" style="color: yellow">Multipliers: 0 [+0]</p>
-        <button class="coinunlock3" id="buymultiplier" onclick="buyMultiplier()" style="background-color: #070707;">Cost: 500 Coins.</button>
-        <p class="coinunlock3" id="buildtext14" style="color: pink">Multiplier Power: 2.000%. Multiplier: 1.00x</p>
-        <p class="prestigeunlock" id="buildtext15" style="color: cyan">Accelerator Boosts: 0 [+0]</p>
-        <button class="prestigeunlock" id="buyacceleratorboost" onclick="boostAccelerator()" style="background-color: #070707;">Cost: 500 Coins.</button>
-        <p class="prestigeunlock" id="buildtext16" style="color: crimson">Next one adds 1.00% Acceleration Factor.</p>
-        
-        <button class="auto" id="toggle1" onclick="toggleSettings(0)" style="background-color: #171717;">Auto: On</button>
-        <button class="auto" id="toggle2" onclick="toggleSettings(1)" style="background-color: #171717;">Auto: On</button>
-        <button class="auto" id="toggle3" onclick="toggleSettings(2)" style="background-color: #171717;">Auto: On</button>
-        <button class="auto" id="toggle4" onclick="toggleSettings(3)" style="background-color: #171717;">Auto: On</button>
-        <button class="auto" id="toggle5" onclick="toggleSettings(4)" style="background-color: #171717;">Auto: On</button>
-        <button class="auto" id="toggle6" onclick="toggleSettings(5)" style="background-color: #171717;">Auto: On</button>
-        <button class="auto" id="toggle7" onclick="toggleSettings(6)" style="background-color: #171717;">Auto: On</button>
-        <button class="auto" id="toggle8" onclick="toggleSettings(7)" style="background-color: #171717;">Auto: On</button>
-        
-        <p class="prestigeunlock" id="taxinfo" style="color: orange;">Due to your excessive wealth, all coin production is divided by 1.00 to pay taxes!</p>
-        <p class="prestigeunlock" id="buildinghotkeys">Press [1], [2], [3], [4], or [5] to buy the corresponding tier starting from the top. Press [A] to buy Accelerator, [M] to buy Multiplier, or [B] to buy Accelerator Boost. Press [left arrow] or [right arrow] to switch tabs. Enjoy!</p>
-    </div>
 </div>
-
-    <div id="upgrades">
-            
-        <div id="upgradesRow1">
-             <p id="coinupgradetitle" style="color: gold"><img src="Pictures/Coin.png"></p>
-             <p class="prestigeunlock" id="prestigeupgradetitle" style="color: cyan"><img src="Pictures/Diamond.png"></p>
-             <p class="transcendunlock" id="transcendupgradetitle" style="color: plum"><img src="Pictures/Mythos.png"></p>
-             <p class="reincarnationunlock" id="reincarnationupgradetitle" style="color: green"><img src="Pictures/Particle.png"></p>
-             <p class="prestigeunlock" id="automationtitle" style="color: pink"><img src="Pictures/Automation.png"></p>
-            <p class="prestigeunlock" id="generatortitle" style="color: pink"><img src="Pictures/Generators.png"></p>
-            <p id="cointext" style="color: gold">Coin Upgrades</p>
-            <p class="prestigeunlock" id="prestigetext" style="color: cyan">Diamond Upgrades</p>
-            <p class="transcendunlock" id="transcendtext" style="color: plum">Mythos Upgrades</p>
-            <p class="prestigeunlock" id="generatortext" style="color: lightgray">Generator Shop</p>
-            <p class="prestigeunlock" id="automationtext" style="color: crimson">Automation Shop</p>
-            <p class="reincarnationunlock" id="reincarnationtext" style="color: limegreen">Particles Upgrades</p>
-
-
-        </div>
-
-        <div id="upgradesrow2">
-       
-            <table id="coinupgradestable" style="padding: 0px; font-size:0;">
-        
-                <tr style="text-align:center; border-collapse:collapse;">
-                    <td><img src="Pictures/Transparent Pics/Coin1.png" id="upg1" onclick="buyUpgrades('coin', 1)" onmouseover="upgradedescriptions(1)"></td> 
-                    <td><img src="Pictures/Transparent Pics/Coin2.png" id="upg2" onclick="buyUpgrades('coin', 2)" onmouseover="upgradedescriptions(2)"></td>
-                    <td><img src="Pictures/Transparent Pics/Coin3.png" id="upg3" onclick="buyUpgrades('coin', 3)" onmouseover="upgradedescriptions(3)"></td>
-                    <td><img src="Pictures/Transparent Pics/Coin4.png" id="upg4" onclick="buyUpgrades('coin', 4)" onmouseover="upgradedescriptions(4)"></td>
-                    <td><img src="Pictures/Transparent Pics/Coin5.png" id="upg5" onclick="buyUpgrades('coin', 5)" onmouseover="upgradedescriptions(5)"></td>
-                </tr>
-                <tr style="text-align:center; border-collapse:collapse;">
-                    <td><img class="prestigeunlock" src="Pictures/Transparent Pics/Coin6.png" id="upg6" onclick="buyUpgrades('coin', 6)" onmouseover="upgradedescriptions(6)"></td> 
-                    <td><img class="prestigeunlock" src="Pictures/Transparent Pics/Coin7.png" id="upg7" onclick="buyUpgrades('coin', 7)" onmouseover="upgradedescriptions(7)"></td>
-                    <td><img class="prestigeunlock" src="Pictures/Transparent Pics/Coin8.png" id="upg8" onclick="buyUpgrades('coin', 8)" onmouseover="upgradedescriptions(8)"></td>
-                    <td><img class="prestigeunlock" src="Pictures/Transparent Pics/Coin9.png" id="upg9" onclick="buyUpgrades('coin', 9)" onmouseover="upgradedescriptions(9)"></td>
-                    <td><img class="prestigeunlock" src="Pictures/Transparent Pics/Coin10.png" id="upg10" onclick="buyUpgrades('coin', 10)" onmouseover="upgradedescriptions(10)"></td>
-                </tr>
-                <tr style="text-align:center; border-collapse:collapse;">
-                    <td><img class="generationunlock" src="Pictures/Transparent Pics/Coin11.png" id="upg11" onclick="buyUpgrades('coin', 11)" onmouseover="upgradedescriptions(11)"></td> 
-                    <td><img class="generationunlock" src="Pictures/Transparent Pics/Coin12.png" id="upg12" onclick="buyUpgrades('coin', 12)" onmouseover="upgradedescriptions(12)"></td>
-                    <td><img class="generationunlock" src="Pictures/Transparent Pics/Coin13.png" id="upg13" onclick="buyUpgrades('coin', 13)" onmouseover="upgradedescriptions(13)"></td>
-                    <td><img class="generationunlock" src="Pictures/Transparent Pics/Coin14.png" id="upg14" onclick="buyUpgrades('coin', 14)" onmouseover="upgradedescriptions(14)"></td>
-                    <td><img class="generationunlock" src="Pictures/Transparent Pics/Coin15.png" id="upg15" onclick="buyUpgrades('coin', 15)" onmouseover="upgradedescriptions(15)"></td>
-                </tr>
-                <tr style="text-align:center; border-collapse:collapse;">
-                    <td><img class="transcendunlock" src="Pictures/Transparent Pics/Coin16.png" id="upg16" onclick="buyUpgrades('coin', 16)" onmouseover="upgradedescriptions(16)"></td> 
-                    <td><img class="transcendunlock" src="Pictures/Transparent Pics/Coin17.png" id="upg17" onclick="buyUpgrades('coin', 17)" onmouseover="upgradedescriptions(17)"></td>
-                    <td><img class="transcendunlock" src="Pictures/Transparent Pics/Coin18.png" id="upg18" onclick="buyUpgrades('coin', 18)" onmouseover="upgradedescriptions(18)"></td>
-                    <td><img class="transcendunlock" src="Pictures/Transparent Pics/Coin19.png" id="upg19" onclick="buyUpgrades('coin', 19)" onmouseover="upgradedescriptions(19)"></td>
-                    <td><img class="transcendunlock" src="Pictures/Transparent Pics/Coin20.png" id="upg20" onclick="buyUpgrades('coin', 20)" onmouseover="upgradedescriptions(20)"></td>
-                </tr>
-            </table>
-             
-     
-             <table class="prestigeunlock" id="prestigeupgradestable" style="padding: 0px; font-size:0;">
-                    <tr style="text-align:center; border-collapse:collapse;">
-                        <td><img src="Pictures/Transparent Pics/Diamond1.png" id="upg21" onclick="buyUpgrades('prestige', 21)" onmouseover="upgradedescriptions(21)"></td> 
-                        <td><img src="Pictures/Transparent Pics/Diamond2.png" id="upg22" onclick="buyUpgrades('prestige', 22)" onmouseover="upgradedescriptions(22)"></td>
-                        <td><img src="Pictures/Transparent Pics/Diamond3.png" id="upg23" onclick="buyUpgrades('prestige', 23)" onmouseover="upgradedescriptions(23)"></td>
-                        <td><img src="Pictures/Transparent Pics/Diamond4.png" id="upg24" onclick="buyUpgrades('prestige', 24)" onmouseover="upgradedescriptions(24)"></td>
-                        <td><img src="Pictures/Transparent Pics/Diamond5.png" id="upg25" onclick="buyUpgrades('prestige', 25)" onmouseover="upgradedescriptions(25)"></td>
-                    </tr>
-                    <tr style="text-align:center; border-collapse:collapse;">
-                        <td><img src="Pictures/Transparent Pics/Diamond6.png" id="upg26" onclick="buyUpgrades('prestige', 26)" onmouseover="upgradedescriptions(26)"></td> 
-                        <td><img src="Pictures/Transparent Pics/Diamond7.png" id="upg27" onclick="buyUpgrades('prestige', 27)" onmouseover="upgradedescriptions(27)"></td>
-                        <td><img src="Pictures/Transparent Pics/Diamond8.png" id="upg28" onclick="buyUpgrades('prestige', 28)" onmouseover="upgradedescriptions(28)"></td>
-                        <td><img src="Pictures/Transparent Pics/Diamond9.png" id="upg29" onclick="buyUpgrades('prestige', 29)" onmouseover="upgradedescriptions(29)"></td>
-                        <td><img src="Pictures/Transparent Pics/Diamond10.png" id="upg30" onclick="buyUpgrades('prestige', 30)" onmouseover="upgradedescriptions(30)"></td>
-                    </tr>
-                    <tr style="text-align:center; border-collapse:collapse;">
-                        <td><img class="transcendunlock" src="Pictures/Transparent Pics/Diamond11.png" id="upg31" onclick="buyUpgrades('prestige', 31)" onmouseover="upgradedescriptions(31)"></td> 
-                        <td><img class="transcendunlock" src="Pictures/Transparent Pics/Diamond12.png" id="upg32" onclick="buyUpgrades('prestige', 32)" onmouseover="upgradedescriptions(32)"></td>
-                        <td><img class="transcendunlock" src="Pictures/Transparent Pics/Diamond13.png" id="upg33" onclick="buyUpgrades('prestige', 33)" onmouseover="upgradedescriptions(33)"></td>
-                        <td><img class="transcendunlock" src="Pictures/Transparent Pics/Diamond14.png" id="upg34" onclick="buyUpgrades('prestige', 34)" onmouseover="upgradedescriptions(34)"></td>
-                        <td><img class="transcendunlock" src="Pictures/Transparent Pics/Diamond15.png" id="upg35" onclick="buyUpgrades('prestige', 35)" onmouseover="upgradedescriptions(35)"></td>
-                    </tr>
-                    <tr style="text-align:center; border-collapse:collapse;">
-                        <td><img class="reincarnationunlock" src="Pictures/Transparent Pics/Diamond16.png" id="upg36" onclick="buyUpgrades('prestige', 36)" onmouseover="upgradedescriptions(36)"></td> 
-                        <td><img class="reincarnationunlock" src="Pictures/Transparent Pics/Diamond17.png" id="upg37" onclick="buyUpgrades('prestige', 37)" onmouseover="upgradedescriptions(37)"></td>
-                        <td><img class="chal7" src="Pictures/Transparent Pics/Diamond18.png" id="upg38" onclick="buyUpgrades('prestige', 38)" onmouseover="upgradedescriptions(38)"></td>
-                        <td><img class="chal8" src="Pictures/Transparent Pics/Diamond19.png" id="upg39" onclick="buyUpgrades('prestige', 39)" onmouseover="upgradedescriptions(39)"></td>
-                        <td><img class="chal9" src="Pictures/Transparent Pics/Diamond20.png" id="upg40" onclick="buyUpgrades('prestige', 40)" onmouseover="upgradedescriptions(40)"></td>
-                    </tr>
-
-             </table>
-     
-             <table class="transcendunlock" id="transcendupgradestable" style="padding: 0px; font-size:0;">
-                <tr style="text-align:center; border-collapse:collapse;">
-                    <td><img src="Pictures/Transparent Pics/Mythos1.png" id="upg41" onclick="buyUpgrades('transcend', 41)" onmouseover="upgradedescriptions(41)"></td> 
-                    <td><img src="Pictures/Transparent Pics/Mythos2.png" id="upg42" onclick="buyUpgrades('transcend', 42)" onmouseover="upgradedescriptions(42)"></td>
-                    <td><img src="Pictures/Transparent Pics/Mythos3.png" id="upg43" onclick="buyUpgrades('transcend', 43)" onmouseover="upgradedescriptions(43)"></td>
-                    <td><img src="Pictures/Transparent Pics/Mythos4.png" id="upg44" onclick="buyUpgrades('transcend', 44)" onmouseover="upgradedescriptions(44)"></td>
-                    <td><img src="Pictures/Transparent Pics/Mythos5.png" id="upg45" onclick="buyUpgrades('transcend', 45)" onmouseover="upgradedescriptions(45)"></td>
-                </tr>
-                <tr style="text-align:center; border-collapse:collapse;">
-                    <td><img src="Pictures/Transparent Pics/Mythos6.png" id="upg46" onclick="buyUpgrades('transcend', 46)" onmouseover="upgradedescriptions(46)"></td> 
-                    <td><img src="Pictures/Transparent Pics/Mythos7.png" id="upg47" onclick="buyUpgrades('transcend', 47)" onmouseover="upgradedescriptions(47)"></td>
-                    <td><img src="Pictures/Transparent Pics/Mythos8.png" id="upg48" onclick="buyUpgrades('transcend', 48)" onmouseover="upgradedescriptions(48)"></td>
-                    <td><img src="Pictures/Transparent Pics/Mythos9.png" id="upg49" onclick="buyUpgrades('transcend', 49)" onmouseover="upgradedescriptions(49)"></td>
-                    <td><img src="Pictures/Transparent Pics/Mythos10.png" id="upg50" onclick="buyUpgrades('transcend', 50)" onmouseover="upgradedescriptions(50)"></td>
-                </tr>
-                <tr style="text-align:center; border-collapse:collapse;">
-                    <td><img class="reincarnationunlock" src="Pictures/Transparent Pics/Mythos11.png" id="upg51" onclick="buyUpgrades('transcend', 51)" onmouseover="upgradedescriptions(51)"></td> 
-                    <td><img class="reincarnationunlock" src="Pictures/Transparent Pics/Mythos12.png" id="upg52" onclick="buyUpgrades('transcend', 52)" onmouseover="upgradedescriptions(52)"></td>
-                    <td><img class="reincarnationunlock" src="Pictures/Transparent Pics/Mythos13.png" id="upg53" onclick="buyUpgrades('transcend', 53)" onmouseover="upgradedescriptions(53)"></td>
-                    <td><img class="reincarnationunlock" src="Pictures/Transparent Pics/Mythos14.png" id="upg54" onclick="buyUpgrades('transcend', 54)" onmouseover="upgradedescriptions(54)"></td>
-                    <td><img class="reincarnationunlock" src="Pictures/Transparent Pics/Mythos15.png" id="upg55" onclick="buyUpgrades('transcend', 55)" onmouseover="upgradedescriptions(55)"></td>
-                </tr>
-                <tr style="text-align:center; border-collapse:collapse;">
-                    <td><img class="reincarnationunlock" src="Pictures/Transparent Pics/Mythos16.png" id="upg56" onclick="buyUpgrades('transcend', 56)" onmouseover="upgradedescriptions(56)"></td> 
-                    <td><img class="reincarnationunlock" src="Pictures/Transparent Pics/Mythos17.png" id="upg57" onclick="buyUpgrades('transcend', 57)" onmouseover="upgradedescriptions(57)"></td>
-                    <td><img class="reincarnationunlock" src="Pictures/Transparent Pics/Mythos18.png" id="upg58" onclick="buyUpgrades('transcend', 58)" onmouseover="upgradedescriptions(58)"></td>
-                    <td><img class="reincarnationunlock" src="Pictures/Transparent Pics/Mythos19.png" id="upg59" onclick="buyUpgrades('transcend', 59)" onmouseover="upgradedescriptions(59)"></td>
-                    <td><img class="reincarnationunlock" src="Pictures/Transparent Pics/Mythos20.png" id="upg60" onclick="buyUpgrades('transcend', 60)" onmouseover="upgradedescriptions(60)"></td>
-                </tr>
-             </table>
-             
-             <table class="reincarnationunlock" id="reincarnationupgradestable" style="padding: 0px; font-size:0;">
-                <tr style="text-align:center; border-collapse:collapse;">
-                    <td><img class="reinrow1" src="Pictures/Transparent Pics/Particle1.png" id="upg61" onclick="buyUpgrades('reincarnation', 61)" onmouseover="upgradedescriptions(61)"></td> 
-                    <td><img class="reinrow1" src="Pictures/Transparent Pics/Particle2.png" id="upg62" onclick="buyUpgrades('reincarnation', 62)" onmouseover="upgradedescriptions(62)"></td>
-                    <td><img class="reinrow1" src="Pictures/Transparent Pics/Particle3.png" id="upg63" onclick="buyUpgrades('reincarnation', 63)" onmouseover="upgradedescriptions(63)"></td>
-                    <td><img class="reinrow1" src="Pictures/Transparent Pics/Particle4.png" id="upg64" onclick="buyUpgrades('reincarnation', 64)" onmouseover="upgradedescriptions(64)"></td>
-                    <td><img class="reinrow1" src="Pictures/Transparent Pics/Particle5.png" id="upg65" onclick="buyUpgrades('reincarnation', 65)" onmouseover="upgradedescriptions(65)"></td>
-                </tr>
-                <tr style="text-align:center; border-collapse:collapse;">
-                    <td><img class="reinrow2" src="Pictures/Transparent Pics/Particle6.png" id="upg66" onclick="buyUpgrades('reincarnation', 66)" onmouseover="upgradedescriptions(66)"></td> 
-                    <td><img class="reinrow2" src="Pictures/Transparent Pics/Particle7.png" id="upg67" onclick="buyUpgrades('reincarnation', 67)" onmouseover="upgradedescriptions(67)"></td>
-                    <td><img class="reinrow2" src="Pictures/Transparent Pics/Particle8.png" id="upg68" onclick="buyUpgrades('reincarnation', 68)" onmouseover="upgradedescriptions(68)"></td>
-                    <td><img class="reinrow2" src="Pictures/Transparent Pics/Particle9.png" id="upg69" onclick="buyUpgrades('reincarnation', 69)" onmouseover="upgradedescriptions(69)"></td>
-                    <td><img class="reinrow2" src="Pictures/Transparent Pics/Particle10.png" id="upg70" onclick="buyUpgrades('reincarnation', 70)" onmouseover="upgradedescriptions(70)"></td>
-                </tr>
-                <tr style="text-align:center; border-collapse:collapse;">
-                    <td><img class="reinrow3" src="Pictures/Transparent Pics/Particle11.png" id="upg71" onclick="buyUpgrades('reincarnation', 71)" onmouseover="upgradedescriptions(71)"></td> 
-                    <td><img class="reinrow3" src="Pictures/Transparent Pics/Particle12.png" id="upg72" onclick="buyUpgrades('reincarnation', 72)" onmouseover="upgradedescriptions(72)"></td>
-                    <td><img class="reinrow3" src="Pictures/Transparent Pics/Particle13.png" id="upg73" onclick="buyUpgrades('reincarnation', 73)" onmouseover="upgradedescriptions(73)"></td>
-                    <td><img class="reinrow3" src="Pictures/Transparent Pics/Particle14.png" id="upg74" onclick="buyUpgrades('reincarnation', 74)" onmouseover="upgradedescriptions(74)"></td>
-                    <td><img class="reinrow3" src="Pictures/Transparent Pics/Particle15.png" id="upg75" onclick="buyUpgrades('reincarnation', 75)" onmouseover="upgradedescriptions(75)"></td>
-                </tr>
-                <tr style="text-align:center; border-collapse:collapse;">
-                    <td><img class="reinrow4" src="Pictures/Transparent Pics/Particle16.png" id="upg76" onclick="buyUpgrades('reincarnation', 76)" onmouseover="upgradedescriptions(76)"></td> 
-                    <td><img class="reinrow4" src="Pictures/Transparent Pics/Particle17.png" id="upg77" onclick="buyUpgrades('reincarnation', 77)" onmouseover="upgradedescriptions(77)"></td>
-                    <td><img class="reinrow4" src="Pictures/Transparent Pics/Particle18.png" id="upg78" onclick="buyUpgrades('reincarnation', 78)" onmouseover="upgradedescriptions(78)"></td>
-                    <td><img class="reinrow4" src="Pictures/Transparent Pics/Particle19.png" id="upg79" onclick="buyUpgrades('reincarnation', 79)" onmouseover="upgradedescriptions(79)"></td>
-                    <td><img class="reinrow4" src="Pictures/Transparent Pics/Particle20.png" id="upg80" onclick="buyUpgrades('reincarnation', 80)" onmouseover="upgradedescriptions(80)"></td>
-                </tr>
-             </table>
-             <table class="prestigeunlock" id="automationtable" style="padding: 0px; font-size:0;">
-                <tr>
-                   <td>                    <img  id="upg81" src="Pictures/Transparent Pics/AutomationOne.png" onclick="buyAutobuyers(1)" onmouseover="upgradedescriptions(81)">                </td>
-                   <td>                   <img id="upg82" src="Pictures/Transparent Pics/AutomationTwo.png" onclick="buyAutobuyers(2)" onmouseover="upgradedescriptions(82)">                </td>
-                   <td>                    <img id="upg83" src="Pictures/Transparent Pics/AutomationThree.png" onclick="buyAutobuyers(3)" onmouseover="upgradedescriptions(83)">                </td>
-                   <td>                    <img id="upg84" src="Pictures/Transparent Pics/AutomationFour.png" onclick="buyAutobuyers(4)" onmouseover="upgradedescriptions(84)">                </td>
-                   <td>                    <img id="upg85" src="Pictures/Transparent Pics/AutomationFive.png" onclick="buyAutobuyers(5)" onmouseover="upgradedescriptions(85)">                </td>
-               </tr>
-               <tr>
-                   <td>                    <img  id="upg86" src="Pictures/Transparent Pics/AutomationSix.png" onclick="buyAutobuyers(6)" onmouseover="upgradedescriptions(86)">                </td>
-                   <td>                    <img id="upg87" src="Pictures/Transparent Pics/AutomationSeven.png" onclick="buyAutobuyers(7)" onmouseover="upgradedescriptions(87)">                </td>
-                   <td>                    <img id="upg88" class="transcendunlock" id="auto8" src="Pictures/Transparent Pics/AutomationEight.png" onclick="buyAutobuyers(8)" onmouseover="upgradedescriptions(88)">                </td>
-                   <td>                    <img id="upg89" class="transcendunlock" id="auto9" src="Pictures/Transparent Pics/AutomationNine.png" onclick="buyAutobuyers(9)" onmouseover="upgradedescriptions(89)">                </td>
-                   <td>                    <img id="upg90" class="transcendunlock" id="auto10" src="Pictures/Transparent Pics/AutomationTen.png" onclick="buyAutobuyers(10)" onmouseover="upgradedescriptions(90)">      </td>
-               </tr>
-               <tr>
-                   <td>                    <img id="upg91" class="transcendunlock" src="Pictures/Transparent Pics/AutomationEleven.png" onclick="buyAutobuyers(11)" onmouseover="upgradedescriptions(91)">                </td>
-                   <td>                    <img id="upg92" class="transcendunlock" src="Pictures/Transparent Pics/AutomationTwelve.png" onclick="buyAutobuyers(12)" onmouseover="upgradedescriptions(92)">                </td>
-                   <td>                    <img id="upg93" class="transcendunlock" src="Pictures/Transparent Pics/AutomationThirteen.png" onclick="buyAutobuyers(13)" onmouseover="upgradedescriptions(93)">                </td>
-                   <td>                    <img id="upg94" class="reincarnationunlock" src="Pictures/Transparent Pics/AutomationFourteen.png" onclick="buyAutobuyers(14)" onmouseover="upgradedescriptions(94)">                </td>
-                   <td>                    <img id="upg95" class="reincarnationunlock" src="Pictures/Transparent Pics/AutomationFifteen.png" onclick="buyAutobuyers(15)" onmouseover="upgradedescriptions(95)">                </td>
-               </tr>
-               <tr>
-                   <td>                    <img  id="upg96" class="reincarnationunlock" src="Pictures/Transparent Pics/AutomationSixteen.png" onclick="buyAutobuyers(16)" onmouseover="upgradedescriptions(96)">                </td>
-                   <td>                   <img  id="upg97" class="reincarnationunlock" src="Pictures/Transparent Pics/AutomationSeventeen.png" onclick="buyAutobuyers(17)" onmouseover="upgradedescriptions(97)">                </td>
-                   <td>                    <img id="upg98" class="reincarnationunlock" src="Pictures/Transparent Pics/AutomationEighteen.png" onclick="buyAutobuyers(18)" onmouseover="upgradedescriptions(98)">                </td>
-                   <td>                    <img  id="upg99" class="reincarnationunlock" src="Pictures/Transparent Pics/AutomationNineteen.png" onclick="buyAutobuyers(19)" onmouseover="upgradedescriptions(99)">                </td>
-                   <td>                    <img  id="upg100" class="reincarnationunlock" src="Pictures/Transparent Pics/AutomationTwenty.png" onclick="buyAutobuyers(20)" onmouseover="upgradedescriptions(100)">                </td>
-               </tr>
-           </table>
-           <table class="prestigeunlock" id="generatortable" style="padding: 0px; font-size:0;"> 
-                   <tr>
-                       <td>                        <img  id="upg101" src="Pictures/Transparent Pics/GeneratorOne.png" onclick="buyGenerator(1)" onmouseover="upgradedescriptions(101)">                    </td>
-                       <td>                        <img id="upg102" class="generationunlock" src="Pictures/Transparent Pics/GeneratorTwo.png"  onclick="buyGenerator(2)" onmouseover="upgradedescriptions(102)">                    </td>
-                       <td>                        <img id="upg103" class="generationunlock" src="Pictures/Transparent Pics/GeneratorThree.png"  onclick="buyGenerator(3)" onmouseover="upgradedescriptions(103)">                    </td>
-                       <td>                        <img id="upg104" class="generationunlock" src="Pictures/Transparent Pics/GeneratorFour.png"  onclick="buyGenerator(4)" onmouseover="upgradedescriptions(104)">                    </td>
-                       <td>                        <img id="upg105" class="generationunlock" src="Pictures/Transparent Pics/GeneratorFive.png"  onclick="buyGenerator(5)" onmouseover="upgradedescriptions(105)">                    </td>
-                   </tr>
-                   <tr>
-                       <td>                        <img id="upg106" class="transcendunlock" src="Pictures/Transparent Pics/GeneratorSix.png" onmouseover="upgradedescriptions(106)" onclick="buyGenerator(6)">                    </td>
-                       <td>                        <img id="upg107" class="transcendunlock" src="Pictures/Transparent Pics/GeneratorSeven.png" onmouseover="upgradedescriptions(107)" onclick="buyGenerator(7)">                    </td>
-                       <td>                        <img id="upg108" class="transcendunlock" src="Pictures/Transparent Pics/GeneratorEight.png" onmouseover="upgradedescriptions(108)" onclick="buyGenerator(8)">                    </td>
-                       <td>                        <img id="upg109" class="transcendunlock" src="Pictures/Transparent Pics/GeneratorNine.png" onmouseover="upgradedescriptions(109)" onclick="buyGenerator(9)">                    </td>
-                       <td>                        <img id="upg110" class="transcendunlock" src="Pictures/Transparent Pics/GeneratorTen.png" onmouseover="upgradedescriptions(110)" onclick="buyGenerator(10)">                    </td>
-                   </tr>
-                   <tr>
-                       <td>                        <img id="upg111" class="transcendunlock" src="Pictures/Transparent Pics/GeneratorEleven.png" onmouseover="upgradedescriptions(111)" onclick="buyGenerator(11)">                    </td>
-                       <td>                        <img id="upg112" class="transcendunlock" src="Pictures/Transparent Pics/GeneratorTwelve.png" onmouseover="upgradedescriptions(112)" onclick="buyGenerator(12)">                    </td>
-                       <td>                        <img id="upg113" class="transcendunlock" src="Pictures/Transparent Pics/GeneratorThirteen.png" onmouseover="upgradedescriptions(113)" onclick="buyGenerator(13)">                    </td>
-                       <td>                        <img id="upg114" class="transcendunlock" src="Pictures/Transparent Pics/GeneratorFourteen.png" onmouseover="upgradedescriptions(114)" onclick="buyGenerator(14)">                    </td>
-                       <td>                        <img id="upg115" class="transcendunlock" src="Pictures/Transparent Pics/GeneratorFifteen.png" onmouseover="upgradedescriptions(115)" onclick="buyGenerator(15)">                    </td>
-                   </tr>
-                   <tr>
-                       <td>                        <img id="upg116" class="transcendunlock" src="Pictures/Transparent Pics/GeneratorSixteen.png" onmouseover="upgradedescriptions(116)" onclick="buyGenerator(16)">                    </td>
-                       <td>                        <img  id="upg117" class="transcendunlock" src="Pictures/Transparent Pics/GeneratorSeventeen.png" onmouseover="upgradedescriptions(117)" onclick="buyGenerator(17)">                    </td>
-                       <td>                        <img id="upg118" class="transcendunlock" src="Pictures/Transparent Pics/GeneratorEighteen.png" onmouseover="upgradedescriptions(118)" onclick="buyGenerator(18)">                    </td>
-                       <td>                        <img id="upg119" class="transcendunlock" src="Pictures/Transparent Pics/GeneratorNineteen.png" onmouseover="upgradedescriptions(119)" onclick="buyGenerator(19)">                    </td>
-                       <td>                        <img id="upg120" class="transcendunlock" src="Pictures/Transparent Pics/GeneratorTwenty.png" onmouseover="upgradedescriptions(120)" onclick="buyGenerator(20)">                    </td>
-                   </tr>
-           </table>
-        </div>
-        <div id="shoptogglerow">
-            <button class="auto" id="shoptogglecoin" onclick="toggleShops(1)" style="border:2px solid green">Auto: ON</button>
-            <button class="auto" id="shoptoggleprestige" onclick="toggleShops(2)" style="border:2px solid green">Auto: ON</button>
-            <button class="auto" id="shoptoggletranscend" onclick="toggleShops(3)" style="border:2px solid green">Auto: ON</button>
-            <button class="auto" id="shoptogglegenerator" onclick="toggleShops(4)" style="border:2px solid green">Auto: ON</button>
-        </div>
-
-        <div id="upgradesrow3">
-            <p id="upgradedescription" style="color: beige">Hover over an upgrade icon to see details!</p>
-            <p id="upgradecost"></p>
-            <p id="upgradeeffect"></p>
-            <button class="auto" id="toggle9" onclick="toggleSettings(8)" style="border:2px solid green">Hover-To-Buy: Off</button>
-        </div>
-        </div>
-
-        
 
         <div id="statistics">
             <div id="achievements">
                 <p id="achievementcolorcode1">Green background: Achieved.</p>
-                <p id="achievementcolorcode2">Purple background: Unachieved, provides bonus multiplier.</p>   
+                <p id="achievementcolorcode2">Purple background: Unachieved, provides bonus multiplier.</p>
                 <p id="achievementcolorcode3">Red background: Unachieved, provides content/feature unlock.</p>
                 <p id="achievementcolorcode4">No background: Unachieved, nothing special.</p>
                 <table id="achievementstable" style="padding: 0px; font-size:0;">
@@ -649,9 +723,9 @@
                 <table id="crystalbuyamount">
                     <tr>
                     <td><img  id="crystalone" src="Pictures/Transparent Pics/CrystalOne.png" style="cursor:pointer; background-color: green;" onclick="toggleBuyAmount(1,'crystal')"></td>
-                    <td><img  id="crystalten" src="Pictures/Transparent Pics/CrystalTen.png"  style="cursor:pointer;" onclick="toggleBuyAmount(10,'crystal')"></td>    
+                    <td><img  id="crystalten" src="Pictures/Transparent Pics/CrystalTen.png"  style="cursor:pointer;" onclick="toggleBuyAmount(10,'crystal')"></td>
                     <td><img  id="crystalhundred" src="Pictures/Transparent Pics/CrystalHundred.png"  style="cursor:pointer;" onclick="toggleBuyAmount(100,'crystal')"></td>
-                    <td><img  id="crystalthousand" src="Pictures/Transparent Pics/CrystalThousand.png"  style="cursor:pointer;" onclick="toggleBuyAmount(1000,'crystal')"></td>        
+                    <td><img  id="crystalthousand" src="Pictures/Transparent Pics/CrystalThousand.png"  style="cursor:pointer;" onclick="toggleBuyAmount(1000,'crystal')"></td>
         
                     </tr>
                 </table>
@@ -673,7 +747,7 @@
                 <button class="auto" id="toggle14" onclick="toggleSettings(13)" style="background-color: #171717;">Auto: On</button>
                 <button class="auto" id="toggle15" onclick="toggleSettings(14)" style="background-color: #171717;">Automatic Prestige & Customization Being Developed!</button>
                 <div id="prestigeautomation">
-                <button id="prestigeautotoggle" onclick="toggleautoreset(1)" style="border:2px solid green; background-color: #171717;"></button>  
+                <button id="prestigeautotoggle" onclick="toggleautoreset(1)" style="border:2px solid green; background-color: #171717;"></button>
                 <input class="transcendunlock" type="number" id="prestigeamount" min="1" max="999999999" defaultValue="1" oninput="updateAutoReset(1)" onclick="toggleFocus(1)"></input>
                     <p class="transcendunlock" id="autoprestige"></p>
                 </div>
@@ -722,9 +796,9 @@
                 <table id="offeringbuyamount">
                     <tr>
                     <td><img  id="offeringone" src="Pictures/Transparent Pics/OfferingOne.png" style="cursor:pointer; background-color: green;" onclick="toggleBuyAmount(1,'offering')"></td>
-                    <td><img  id="offeringten" src="Pictures/Transparent Pics/OfferingTen.png"  style="cursor:pointer;" onclick="toggleBuyAmount(10,'offering')"></td>    
+                    <td><img  id="offeringten" src="Pictures/Transparent Pics/OfferingTen.png"  style="cursor:pointer;" onclick="toggleBuyAmount(10,'offering')"></td>
                     <td><img  id="offeringhundred" src="Pictures/Transparent Pics/OfferingHundred.png"  style="cursor:pointer;" onclick="toggleBuyAmount(100,'offering')"></td>
-                    <td><img  id="offeringthousand" src="Pictures/Transparent Pics/OfferingThousand.png"  style="cursor:pointer;" onclick="toggleBuyAmount(1000,'offering')"></td>        
+                    <td><img  id="offeringthousand" src="Pictures/Transparent Pics/OfferingThousand.png"  style="cursor:pointer;" onclick="toggleBuyAmount(1000,'offering')"></td>
                     </tr>
                 </table>
                 <p id="toggleofferingbuy">Toggle amount to use per sacrifice</p>
@@ -739,7 +813,7 @@
             <p id="rune1level">Level: 166/500 <span id="bonusrune1" style="color: orange">[+100]</span></p>
             <p id="rune1exp">Exp: 0/40</p>
             <button id="activaterune1"  onclick="redeemShards(1)">SACRIFICE</button>
-            <p id="runeshowpower1">1<span id="divineblessing1" style="color: yellow"> </span></p>
+            <p id="runeshowpower1">1<span id="divineblessing1" style="color: yellow"></span></p>
             </div>
 
             <div id="rune2area">
@@ -748,7 +822,7 @@
             <p id="rune2level">Level: 1/500<span id="bonusrune2" style="color: orange"></span></p>
             <p id="rune2exp">Exp: 0/40</p>
             <button id="activaterune2" onclick="redeemShards(2)">SACRIFICE</button>
-            <p id="runeshowpower2">1<span id="divineblessing2" style="color: yellow"> </span></p>
+            <p id="runeshowpower2">1<span id="divineblessing2" style="color: yellow"></span></p>
             </div>
 
             <div id="rune3area">
@@ -757,7 +831,7 @@
             <p id="rune3level">Level: 1/500<span id="bonusrune3" style="color: orange"></span></p>
             <p id="rune3exp">Exp: 0/40</p>
             <button id="activaterune3" onclick="redeemShards(3)">SACRIFICE</button>
-            <p id="runeshowpower3">1<span id="divineblessing3" style="color: yellow"> </span></p>
+            <p id="runeshowpower3">1<span id="divineblessing3" style="color: yellow"></span></p>
             </div>
 
             <div id="rune4area">
@@ -766,7 +840,7 @@
             <p id="rune4level">Level: 1/500<span id="bonusrune4" style="color: orange"></span></p>
             <p id="rune4exp">TNL: 0</p>
             <button id="activaterune4" onclick="redeemShards(4)">SACRIFICE</button>
-            <p id="runeshowpower4">1<span id="divineblessing4" style="color: yellow"> </span></p>
+            <p id="runeshowpower4">1<span id="divineblessing4" style="color: yellow"></span></p>
             </div>
 
             <div id="rune5area">
@@ -775,7 +849,7 @@
             <p id="rune5level">Level: 1/500<span id="bonusrune5" style="color: orange"></span></p>
             <p id="rune5exp">TNL: 0</p>
             <button id="activaterune5" onclick="redeemShards(5)">SACRIFICE</button>
-            <p id="runeshowpower5">1<span id="divineblessing5" style="color: yellow"> </span></p>
+            <p id="runeshowpower5">1<span id="divineblessing5" style="color: yellow"></span></p>
             </div>
 
             <p id="runedetails">Gain 25 rune experience per Offering.</p>
@@ -792,9 +866,9 @@
                 <table id="talismanbuyamount">
                     <tr>
                         <td><img  id="talismanTen" src="Pictures/Transparent Pics/TalismanTen.png" style="cursor:pointer; background-color: green;" onclick="toggleTalismanBuy(10)"></td>
-                        <td><img  id="talismanTwentyFive" src="Pictures/Transparent Pics/TalismanTwentyFive.png"  style="cursor:pointer;" onclick="toggleTalismanBuy(25)"></td>    
+                        <td><img  id="talismanTwentyFive" src="Pictures/Transparent Pics/TalismanTwentyFive.png"  style="cursor:pointer;" onclick="toggleTalismanBuy(25)"></td>
                         <td><img  id="talismanFifty" src="Pictures/Transparent Pics/TalismanFifty.png"  style="cursor:pointer;" onclick="toggleTalismanBuy(50)"></td>
-                        <td><img  id="talismanHundred" src="Pictures/Transparent Pics/TalismanHundred.png"  style="cursor:pointer;" onclick="toggleTalismanBuy(100)"></td>        
+                        <td><img  id="talismanHundred" src="Pictures/Transparent Pics/TalismanHundred.png"  style="cursor:pointer;" onclick="toggleTalismanBuy(100)"></td>
                     </tr>
                 </table>
                 <p id="toggletalismanbuy">Toggle percent resources used</p>
@@ -832,7 +906,7 @@
                     </tr>
                     <tr>
                         <td style="font-size: 0; width: 32px"><img src="Pictures/MythicalTalisman.png" alt=""></td>
-                        <td style="width: 68px; color: crimson"><p id="mythicalFragmentInventory">0</p></td> 
+                        <td style="width: 68px; color: crimson"><p id="mythicalFragmentInventory">0</p></td>
                         <td><button class="talismanbtn" id="buyMythicalFragment" style="border:2px solid red" onmouseover="updateCostDisplay(6)" onclick="buyTalismanStuff(6)">BUY</button></td>
                     </tr>
                 </table>
@@ -953,9 +1027,9 @@
                 <table id="mythosbuyamount">
                     <tr>
                     <td><img  id="mythosone" src="Pictures/Transparent Pics/MythosOne.png" style="cursor:pointer; background-color: green;" onclick="toggleBuyAmount(1,'mythos')"></td>
-                    <td><img  id="mythosten" src="Pictures/Transparent Pics/MythosTen.png"  style="cursor:pointer;" onclick="toggleBuyAmount(10,'mythos')"></td>    
+                    <td><img  id="mythosten" src="Pictures/Transparent Pics/MythosTen.png"  style="cursor:pointer;" onclick="toggleBuyAmount(10,'mythos')"></td>
                     <td><img  id="mythoshundred" src="Pictures/Transparent Pics/MythosHundred.png"  style="cursor:pointer;" onclick="toggleBuyAmount(100,'mythos')"></td>
-                    <td><img  id="mythosthousand" src="Pictures/Transparent Pics/MythosThousand.png"  style="cursor:pointer;" onclick="toggleBuyAmount(1000,'mythos')"></td>        
+                    <td><img  id="mythosthousand" src="Pictures/Transparent Pics/MythosThousand.png"  style="cursor:pointer;" onclick="toggleBuyAmount(1000,'mythos')"></td>
                     </tr>
                 </table>
                 <p id="togglemythosbuy">Toggle amount to buy</p>
@@ -996,7 +1070,7 @@
             <p id="transcendtext10">100 Oracles/sec</p>
             </div>
             <div id="transcendautomation">
-                <button id="transcendautotoggle" onclick="toggleautoreset(2)" style="border:2px solid green; background-color: #171717;"></button>  
+                <button id="transcendautotoggle" onclick="toggleautoreset(2)" style="border:2px solid green; background-color: #171717;"></button>
             <input class="transcendunlock" type="number" id="transcendamount" min="1" max="999999999" defaultValue="1" oninput="updateAutoReset(2)" onclick="toggleFocus(2)">
             <p class="transcendunlock" id="autotranscend"></p>
             </div>
@@ -1034,7 +1108,7 @@
                 <p id="challengePer3">---</p>
                 <p id="challengeFirstCompletionRewards">Bonus/Unlock for First Completion</p>
                 <p id="challengeFirst1">+1 Free Multiplier!</p>
-                <p id="challengeQuarkBonus">+1 Quarks</p>    
+                <p id="challengeQuarkBonus">+1 Quarks</p>
 
                 <button id="startChallenge" onclick="toggleChallenges(triggerChallenge)">Start Challenge 1</button>
                 <button id="retryChallenge" onclick="toggleRetryChallenges()">Retry Challenges: OFF</button>
@@ -1052,9 +1126,9 @@
                 <table id="particlebuyamount">
                     <tr>
                     <td><img  id="particleone" src="Pictures/Transparent Pics/ParticleOne.png" style="cursor:pointer; background-color: green;" onclick="toggleBuyAmount(1,'particle')"></td>
-                    <td><img  id="particleten" src="Pictures/Transparent Pics/ParticleTen.png"  style="cursor:pointer;" onclick="toggleBuyAmount(10,'particle')"></td>    
-                    <td><img  id="particlehundred" src="Pictures/Transparent Pics/ParticleHundred.png"  style="cursor:pointer;" onclick="toggleBuyAmount(100,'particle')"></td> 
-                    <td><img  id="particlethousand" src="Pictures/Transparent Pics/ParticleThousand.png"  style="cursor:pointer;" onclick="toggleBuyAmount(1000,'particle')"></td>               
+                    <td><img  id="particleten" src="Pictures/Transparent Pics/ParticleTen.png"  style="cursor:pointer;" onclick="toggleBuyAmount(10,'particle')"></td>
+                    <td><img  id="particlehundred" src="Pictures/Transparent Pics/ParticleHundred.png"  style="cursor:pointer;" onclick="toggleBuyAmount(100,'particle')"></td>
+                    <td><img  id="particlethousand" src="Pictures/Transparent Pics/ParticleThousand.png"  style="cursor:pointer;" onclick="toggleBuyAmount(1000,'particle')"></td>
                     </tr>
                 </table>
                 <p id="toggleparticlebuy">Toggle amount to buy</p>
@@ -1091,7 +1165,7 @@
             <p id="reincarnationtext10">100 Black Holes/sec</p>
             </div>
             <div id="reincarnateautomation">
-                <button id="reincarnateautotoggle" onclick="toggleautoreset(3)" style="border:2px solid green; background-color: #171717;"></button>  
+                <button id="reincarnateautotoggle" onclick="toggleautoreset(3)" style="border:2px solid green; background-color: #171717;"></button>
             <input class="reincarnationunlock" type="number" id="reincarnationamount" min="1" max="999999999" defaultValue="1" oninput="updateAutoReset(3)" onclick="toggleFocus(3)">
             <p class="reincarnationunlock" id="autoreincarnate"></p>
             </div>
@@ -1105,54 +1179,54 @@
             <table id="researchtable">
 
                 <tr>
-                    <td><img id="res1" src="Pictures/Transparent Pics/Research1.png" alt="" onclick="buyResearch(1);" onmouseover="researchdescriptions(1)">                </td>
-                    <td><img id="res2" src="Pictures/Transparent Pics/Research2.png" alt="" onclick="buyResearch(2);" onmouseover="researchdescriptions(2)">                    </td>
-                    <td><img id="res3" src="Pictures/Transparent Pics/Research3.png" alt="" onclick="buyResearch(3);" onmouseover="researchdescriptions(3)">                    </td>
-                    <td><img id="res4" src="Pictures/Transparent Pics/Research4.png" alt="" onclick="buyResearch(4);" onmouseover="researchdescriptions(4)">                    </td>
-                    <td><img id="res5" src="Pictures/Transparent Pics/Research5.png" alt="" onclick="buyResearch(5);" onmouseover="researchdescriptions(5)">                    </td>
-                    <td><img id="res26" src="Pictures/Transparent Pics/Research26.png" alt="" onclick="buyResearch(26);" onmouseover="researchdescriptions(26)">                    </td>
-                    <td><img id="res27" src="Pictures/Transparent Pics/Research27.png" alt="" onclick="buyResearch(27);" onmouseover="researchdescriptions(27)">                    </td>
-                    <td><img id="res28" src="Pictures/Transparent Pics/Research28.png" alt="" onclick="buyResearch(28);" onmouseover="researchdescriptions(28)">                    </td>
-                    <td><img id="res29" src="Pictures/Transparent Pics/Research29.png" alt="" onclick="buyResearch(29);" onmouseover="researchdescriptions(29)">                    </td>
-                    <td><img id="res30" src="Pictures/Transparent Pics/Research30.png" alt="" onclick="buyResearch(30);" onmouseover="researchdescriptions(30)">                    </td>
-                    <td><img id="res51" src="Pictures/Transparent Pics/Research51.png" alt="" onclick="buyResearch(51);" onmouseover="researchdescriptions(51)">                    </td>
-                    <td><img id="res52" src="Pictures/Transparent Pics/Research52.png" alt="" onclick="buyResearch(52);" onmouseover="researchdescriptions(52)">                    </td>
-                    <td><img id="res53" src="Pictures/Transparent Pics/Research53.png" alt="" onclick="buyResearch(53);" onmouseover="researchdescriptions(53)">                    </td>
-                    <td><img id="res54" src="Pictures/Transparent Pics/Research54.png" alt="" onclick="buyResearch(54);" onmouseover="researchdescriptions(54)">                    </td>
-                    <td><img id="res55" src="Pictures/Transparent Pics/Research55.png" alt="" onclick="buyResearch(55);" onmouseover="researchdescriptions(55)">                    </td>
-                    <td><img id="res76" src="Pictures/Transparent Pics/Research76.png" alt="" onclick="buyResearch(76);" class="chal7x10" style="display:none" onmouseover="researchdescriptions(76)">                    </td>
-                    <td><img id="res77" src="Pictures/Transparent Pics/Research77.png" alt="" onclick="buyResearch(77);" class="chal7x10" style="display:none" onmouseover="researchdescriptions(77)">                    </td>
-                    <td><img id="res78" src="Pictures/Transparent Pics/Research78.png" alt="" onclick="buyResearch(78);" class="chal7x10" style="display:none" onmouseover="researchdescriptions(78)">                    </td>
-                    <td><img id="res79" src="Pictures/Transparent Pics/Research79.png" alt="" onclick="buyResearch(79);" class="chal7x10" style="display:none" onmouseover="researchdescriptions(79)">                    </td>
-                    <td><img id="res80" src="Pictures/Transparent Pics/Research80.png" alt="" onclick="buyResearch(80);" class="chal7x10" style="display:none" onmouseover="researchdescriptions(80)">                    </td>
-                    <td><img id="res101" src="Pictures/Transparent Pics/Research101.png" alt="" onclick="buyResearch(101);" class="chal9" style="display:none" onmouseover="researchdescriptions(101)">                    </td>
-                    <td><img id="res102" src="Pictures/Transparent Pics/Research102.png" alt="" onclick="buyResearch(102);" class="chal9" style="display:none" onmouseover="researchdescriptions(102)">                    </td>
-                    <td><img id="res103" src="Pictures/Transparent Pics/Research103.png" alt="" onclick="buyResearch(103);" class="chal9" style="display:none" onmouseover="researchdescriptions(103)">                    </td>
-                    <td><img id="res104" src="Pictures/Transparent Pics/Research104.png" alt="" onclick="buyResearch(104);" class="chal9" style="display:none" onmouseover="researchdescriptions(104)">                    </td>
-                    <td><img id="res105" src="Pictures/Transparent Pics/Research105.png" alt="" onclick="buyResearch(105);" class="chal9" style="display:none" onmouseover="researchdescriptions(105)">                    </td>
+                    <td><img id="res1" src="Pictures/Transparent Pics/Research1.png" alt="" onclick="buyResearch(1);" onmouseover="researchdescriptions(1)"></td>
+                    <td><img id="res2" src="Pictures/Transparent Pics/Research2.png" alt="" onclick="buyResearch(2);" onmouseover="researchdescriptions(2)"></td>
+                    <td><img id="res3" src="Pictures/Transparent Pics/Research3.png" alt="" onclick="buyResearch(3);" onmouseover="researchdescriptions(3)"></td>
+                    <td><img id="res4" src="Pictures/Transparent Pics/Research4.png" alt="" onclick="buyResearch(4);" onmouseover="researchdescriptions(4)"></td>
+                    <td><img id="res5" src="Pictures/Transparent Pics/Research5.png" alt="" onclick="buyResearch(5);" onmouseover="researchdescriptions(5)"></td>
+                    <td><img id="res26" src="Pictures/Transparent Pics/Research26.png" alt="" onclick="buyResearch(26);" onmouseover="researchdescriptions(26)"></td>
+                    <td><img id="res27" src="Pictures/Transparent Pics/Research27.png" alt="" onclick="buyResearch(27);" onmouseover="researchdescriptions(27)"></td>
+                    <td><img id="res28" src="Pictures/Transparent Pics/Research28.png" alt="" onclick="buyResearch(28);" onmouseover="researchdescriptions(28)"></td>
+                    <td><img id="res29" src="Pictures/Transparent Pics/Research29.png" alt="" onclick="buyResearch(29);" onmouseover="researchdescriptions(29)"></td>
+                    <td><img id="res30" src="Pictures/Transparent Pics/Research30.png" alt="" onclick="buyResearch(30);" onmouseover="researchdescriptions(30)"></td>
+                    <td><img id="res51" src="Pictures/Transparent Pics/Research51.png" alt="" onclick="buyResearch(51);" onmouseover="researchdescriptions(51)"></td>
+                    <td><img id="res52" src="Pictures/Transparent Pics/Research52.png" alt="" onclick="buyResearch(52);" onmouseover="researchdescriptions(52)"></td>
+                    <td><img id="res53" src="Pictures/Transparent Pics/Research53.png" alt="" onclick="buyResearch(53);" onmouseover="researchdescriptions(53)"></td>
+                    <td><img id="res54" src="Pictures/Transparent Pics/Research54.png" alt="" onclick="buyResearch(54);" onmouseover="researchdescriptions(54)"></td>
+                    <td><img id="res55" src="Pictures/Transparent Pics/Research55.png" alt="" onclick="buyResearch(55);" onmouseover="researchdescriptions(55)"></td>
+                    <td><img id="res76" src="Pictures/Transparent Pics/Research76.png" alt="" onclick="buyResearch(76);" class="chal7x10" style="display:none" onmouseover="researchdescriptions(76)"></td>
+                    <td><img id="res77" src="Pictures/Transparent Pics/Research77.png" alt="" onclick="buyResearch(77);" class="chal7x10" style="display:none" onmouseover="researchdescriptions(77)"></td>
+                    <td><img id="res78" src="Pictures/Transparent Pics/Research78.png" alt="" onclick="buyResearch(78);" class="chal7x10" style="display:none" onmouseover="researchdescriptions(78)"></td>
+                    <td><img id="res79" src="Pictures/Transparent Pics/Research79.png" alt="" onclick="buyResearch(79);" class="chal7x10" style="display:none" onmouseover="researchdescriptions(79)"></td>
+                    <td><img id="res80" src="Pictures/Transparent Pics/Research80.png" alt="" onclick="buyResearch(80);" class="chal7x10" style="display:none" onmouseover="researchdescriptions(80)"></td>
+                    <td><img id="res101" src="Pictures/Transparent Pics/Research101.png" alt="" onclick="buyResearch(101);" class="chal9" style="display:none" onmouseover="researchdescriptions(101)"></td>
+                    <td><img id="res102" src="Pictures/Transparent Pics/Research102.png" alt="" onclick="buyResearch(102);" class="chal9" style="display:none" onmouseover="researchdescriptions(102)"></td>
+                    <td><img id="res103" src="Pictures/Transparent Pics/Research103.png" alt="" onclick="buyResearch(103);" class="chal9" style="display:none" onmouseover="researchdescriptions(103)"></td>
+                    <td><img id="res104" src="Pictures/Transparent Pics/Research104.png" alt="" onclick="buyResearch(104);" class="chal9" style="display:none" onmouseover="researchdescriptions(104)"></td>
+                    <td><img id="res105" src="Pictures/Transparent Pics/Research105.png" alt="" onclick="buyResearch(105);" class="chal9" style="display:none" onmouseover="researchdescriptions(105)"></td>
 
                 </tr>
                 <tr>
-                    <td><img id="res6" src="Pictures/Transparent Pics/Research6.png" alt="" onclick="buyResearch(6);" onmouseover="researchdescriptions(6)">                    </td>
-                    <td><img id="res7" src="Pictures/Transparent Pics/Research7.png" alt="" onclick="buyResearch(7);" onmouseover="researchdescriptions(7)">                    </td>
-                    <td><img id="res8" src="Pictures/Transparent Pics/Research8.png" alt="" onclick="buyResearch(8);" onmouseover="researchdescriptions(8)">                    </td>
-                    <td><img id="res9" src="Pictures/Transparent Pics/Research9.png" alt="" onclick="buyResearch(9);" onmouseover="researchdescriptions(9)">                    </td>
-                    <td><img id="res10" src="Pictures/Transparent Pics/Research10.png" alt="" onclick="buyResearch(10);" onmouseover="researchdescriptions(10)">                    </td>
-                    <td><img id="res31" src="Pictures/Transparent Pics/Research31.png" alt="" onclick="buyResearch(31);" onmouseover="researchdescriptions(31)">                    </td>
-                    <td><img id="res32" src="Pictures/Transparent Pics/Research32.png" alt="" onclick="buyResearch(32);" onmouseover="researchdescriptions(32)">                    </td>
-                    <td><img id="res33" src="Pictures/Transparent Pics/Research33.png" alt="" onclick="buyResearch(33);" onmouseover="researchdescriptions(33)">                    </td>
-                    <td><img id="res34" src="Pictures/Transparent Pics/Research34.png" alt="" onclick="buyResearch(34);" onmouseover="researchdescriptions(34)">                    </td>
-                    <td><img id="res35" src="Pictures/Transparent Pics/Research35.png" alt="" onclick="buyResearch(35);" onmouseover="researchdescriptions(35)">                    </td>
-                    <td><img id="res56" src="Pictures/Transparent Pics/Research56.png" alt="" onclick="buyResearch(56);" onmouseover="researchdescriptions(56)">                    </td>
-                    <td><img id="res57" src="Pictures/Transparent Pics/Research57.png" alt="" onclick="buyResearch(57);" onmouseover="researchdescriptions(57)">                    </td>
-                    <td><img id="res58" src="Pictures/Transparent Pics/Research58.png" alt="" onclick="buyResearch(58);" onmouseover="researchdescriptions(58)">                    </td>
-                    <td><img id="res59" src="Pictures/Transparent Pics/Research59.png" alt="" onclick="buyResearch(59);" onmouseover="researchdescriptions(59)">                    </td>
-                    <td><img id="res60" src="Pictures/Transparent Pics/Research60.png" alt="" onclick="buyResearch(60);" onmouseover="researchdescriptions(60)">  
-                    <td><img id="res81" src="Pictures/Transparent Pics/Research81.png" alt="" onclick="buyResearch(81);" class="chal8" onmouseover="researchdescriptions(81)">                    </td>
-                    <td><img id="res82" src="Pictures/Transparent Pics/Research82.png" alt="" onclick="buyResearch(82);" class="chal8" onmouseover="researchdescriptions(82)">                    </td>
-                    <td><img id="res83" src="Pictures/Transparent Pics/Research83.png" alt="" onclick="buyResearch(83);" class="chal8" onmouseover="researchdescriptions(83)">                    </td>
-                    <td><img id="res84" src="Pictures/Transparent Pics/Research84.png" alt="" onclick="buyResearch(84);" class="chal8" onmouseover="researchdescriptions(84)">                    </td>
-                    <td><img id="res85" src="Pictures/Transparent Pics/Research85.png" alt="" onclick="buyResearch(85);" class="chal8" onmouseover="researchdescriptions(85)">                    </td>                  </td>
+                    <td><img id="res6" src="Pictures/Transparent Pics/Research6.png" alt="" onclick="buyResearch(6);" onmouseover="researchdescriptions(6)"></td>
+                    <td><img id="res7" src="Pictures/Transparent Pics/Research7.png" alt="" onclick="buyResearch(7);" onmouseover="researchdescriptions(7)"></td>
+                    <td><img id="res8" src="Pictures/Transparent Pics/Research8.png" alt="" onclick="buyResearch(8);" onmouseover="researchdescriptions(8)"></td>
+                    <td><img id="res9" src="Pictures/Transparent Pics/Research9.png" alt="" onclick="buyResearch(9);" onmouseover="researchdescriptions(9)"></td>
+                    <td><img id="res10" src="Pictures/Transparent Pics/Research10.png" alt="" onclick="buyResearch(10);" onmouseover="researchdescriptions(10)"></td>
+                    <td><img id="res31" src="Pictures/Transparent Pics/Research31.png" alt="" onclick="buyResearch(31);" onmouseover="researchdescriptions(31)"></td>
+                    <td><img id="res32" src="Pictures/Transparent Pics/Research32.png" alt="" onclick="buyResearch(32);" onmouseover="researchdescriptions(32)"></td>
+                    <td><img id="res33" src="Pictures/Transparent Pics/Research33.png" alt="" onclick="buyResearch(33);" onmouseover="researchdescriptions(33)"></td>
+                    <td><img id="res34" src="Pictures/Transparent Pics/Research34.png" alt="" onclick="buyResearch(34);" onmouseover="researchdescriptions(34)"></td>
+                    <td><img id="res35" src="Pictures/Transparent Pics/Research35.png" alt="" onclick="buyResearch(35);" onmouseover="researchdescriptions(35)"></td>
+                    <td><img id="res56" src="Pictures/Transparent Pics/Research56.png" alt="" onclick="buyResearch(56);" onmouseover="researchdescriptions(56)"></td>
+                    <td><img id="res57" src="Pictures/Transparent Pics/Research57.png" alt="" onclick="buyResearch(57);" onmouseover="researchdescriptions(57)"></td>
+                    <td><img id="res58" src="Pictures/Transparent Pics/Research58.png" alt="" onclick="buyResearch(58);" onmouseover="researchdescriptions(58)"></td>
+                    <td><img id="res59" src="Pictures/Transparent Pics/Research59.png" alt="" onclick="buyResearch(59);" onmouseover="researchdescriptions(59)"></td>
+                    <td><img id="res60" src="Pictures/Transparent Pics/Research60.png" alt="" onclick="buyResearch(60);" onmouseover="researchdescriptions(60)">
+                    <td><img id="res81" src="Pictures/Transparent Pics/Research81.png" alt="" onclick="buyResearch(81);" class="chal8" onmouseover="researchdescriptions(81)"></td>
+                    <td><img id="res82" src="Pictures/Transparent Pics/Research82.png" alt="" onclick="buyResearch(82);" class="chal8" onmouseover="researchdescriptions(82)"></td>
+                    <td><img id="res83" src="Pictures/Transparent Pics/Research83.png" alt="" onclick="buyResearch(83);" class="chal8" onmouseover="researchdescriptions(83)"></td>
+                    <td><img id="res84" src="Pictures/Transparent Pics/Research84.png" alt="" onclick="buyResearch(84);" class="chal8" onmouseover="researchdescriptions(84)"></td>
+                    <td><img id="res85" src="Pictures/Transparent Pics/Research85.png" alt="" onclick="buyResearch(85);" class="chal8" onmouseover="researchdescriptions(85)"></td></td>
                     <td><img id="res106" src="Pictures/Transparent Pics/Research106.png" alt="" onclick="buyResearch(106);" class="chal9" style="display:none" onmouseover="researchdescriptions(106)"></td>
                     <td><img id="res107" src="Pictures/Transparent Pics/Research107.png" alt="" onclick="buyResearch(107);" class="chal9" style="display:none" onmouseover="researchdescriptions(107)"></td>
                     <td><img id="res108" src="Pictures/Transparent Pics/Research108.png" alt="" onclick="buyResearch(108);" class="chal9" style="display:none" onmouseover="researchdescriptions(108)"></td>
@@ -1161,26 +1235,26 @@
 
                     </tr>
                 <tr>
-                    <td><img id="res11" src="Pictures/Transparent Pics/Research11.png" alt="" onclick="buyResearch(11);" onmouseover="researchdescriptions(11)">                    </td>
-                    <td><img id="res12" src="Pictures/Transparent Pics/Research12.png" alt="" onclick="buyResearch(12);" onmouseover="researchdescriptions(12)">                    </td>
-                    <td><img id="res13" src="Pictures/Transparent Pics/Research13.png" alt="" onclick="buyResearch(13);" onmouseover="researchdescriptions(13)">                    </td>
-                    <td><img id="res14" src="Pictures/Transparent Pics/Research14.png" alt="" onclick="buyResearch(14);" onmouseover="researchdescriptions(14)">                    </td>
-                    <td><img id="res15" src="Pictures/Transparent Pics/Research15.png" alt="" onclick="buyResearch(15);" onmouseover="researchdescriptions(15)">                    </td>
-                    <td><img id="res36" src="Pictures/Transparent Pics/Research36.png" alt="" onclick="buyResearch(36);" onmouseover="researchdescriptions(36)">                    </td>
-                    <td><img id="res37" src="Pictures/Transparent Pics/Research37.png" alt="" onclick="buyResearch(37);" onmouseover="researchdescriptions(37)">                    </td>
-                    <td><img id="res38" src="Pictures/Transparent Pics/Research38.png" alt="" onclick="buyResearch(38);" onmouseover="researchdescriptions(38)">                    </td>
-                    <td><img id="res39" src="Pictures/Transparent Pics/Research39.png" alt="" onclick="buyResearch(39);" onmouseover="researchdescriptions(39)">                    </td>
-                    <td><img id="res40" src="Pictures/Transparent Pics/Research40.png" alt="" onclick="buyResearch(40);" onmouseover="researchdescriptions(40)">                    </td>
-                    <td><img id="res61" src="Pictures/Transparent Pics/Research61.png" alt="" onclick="buyResearch(61);" onmouseover="researchdescriptions(61)">                </td>
-                    <td><img id="res62" src="Pictures/Transparent Pics/Research62.png" alt="" onclick="buyResearch(62);" onmouseover="researchdescriptions(62)">                    </td>
-                    <td><img id="res63" src="Pictures/Transparent Pics/Research63.png" alt="" onclick="buyResearch(63);" onmouseover="researchdescriptions(63)">                    </td>
-                    <td><img id="res64" src="Pictures/Transparent Pics/Research64.png" alt="" onclick="buyResearch(64);" onmouseover="researchdescriptions(64)">                    </td>
+                    <td><img id="res11" src="Pictures/Transparent Pics/Research11.png" alt="" onclick="buyResearch(11);" onmouseover="researchdescriptions(11)"></td>
+                    <td><img id="res12" src="Pictures/Transparent Pics/Research12.png" alt="" onclick="buyResearch(12);" onmouseover="researchdescriptions(12)"></td>
+                    <td><img id="res13" src="Pictures/Transparent Pics/Research13.png" alt="" onclick="buyResearch(13);" onmouseover="researchdescriptions(13)"></td>
+                    <td><img id="res14" src="Pictures/Transparent Pics/Research14.png" alt="" onclick="buyResearch(14);" onmouseover="researchdescriptions(14)"></td>
+                    <td><img id="res15" src="Pictures/Transparent Pics/Research15.png" alt="" onclick="buyResearch(15);" onmouseover="researchdescriptions(15)"></td>
+                    <td><img id="res36" src="Pictures/Transparent Pics/Research36.png" alt="" onclick="buyResearch(36);" onmouseover="researchdescriptions(36)"></td>
+                    <td><img id="res37" src="Pictures/Transparent Pics/Research37.png" alt="" onclick="buyResearch(37);" onmouseover="researchdescriptions(37)"></td>
+                    <td><img id="res38" src="Pictures/Transparent Pics/Research38.png" alt="" onclick="buyResearch(38);" onmouseover="researchdescriptions(38)"></td>
+                    <td><img id="res39" src="Pictures/Transparent Pics/Research39.png" alt="" onclick="buyResearch(39);" onmouseover="researchdescriptions(39)"></td>
+                    <td><img id="res40" src="Pictures/Transparent Pics/Research40.png" alt="" onclick="buyResearch(40);" onmouseover="researchdescriptions(40)"></td>
+                    <td><img id="res61" src="Pictures/Transparent Pics/Research61.png" alt="" onclick="buyResearch(61);" onmouseover="researchdescriptions(61)"></td>
+                    <td><img id="res62" src="Pictures/Transparent Pics/Research62.png" alt="" onclick="buyResearch(62);" onmouseover="researchdescriptions(62)"></td>
+                    <td><img id="res63" src="Pictures/Transparent Pics/Research63.png" alt="" onclick="buyResearch(63);" onmouseover="researchdescriptions(63)"></td>
+                    <td><img id="res64" src="Pictures/Transparent Pics/Research64.png" alt="" onclick="buyResearch(64);" onmouseover="researchdescriptions(64)"></td>
                     <td><img id="res65" src="Pictures/Transparent Pics/Research65.png" alt="" onclick="buyResearch(65);" onmouseover="researchdescriptions(65)">
-                    <td><img id="res86" src="Pictures/Transparent Pics/Research86.png" alt="" onclick="buyResearch(86);" class="chal8" onmouseover="researchdescriptions(86)">                    </td>
-                    <td><img id="res87" src="Pictures/Transparent Pics/Research87.png" alt="" onclick="buyResearch(87);" class="chal8" onmouseover="researchdescriptions(87)">                    </td>
-                    <td><img id="res88" src="Pictures/Transparent Pics/Research88.png" alt="" onclick="buyResearch(88);" class="chal8" onmouseover="researchdescriptions(88)">                    </td>
-                    <td><img id="res89" src="Pictures/Transparent Pics/Research89.png" alt="" onclick="buyResearch(89);" class="chal8" onmouseover="researchdescriptions(89)">                    </td>
-                    <td><img id="res90" src="Pictures/Transparent Pics/Research90.png" alt="" onclick="buyResearch(90);" class="chal8" onmouseover="researchdescriptions(90)">                    </td>                    </td>
+                    <td><img id="res86" src="Pictures/Transparent Pics/Research86.png" alt="" onclick="buyResearch(86);" class="chal8" onmouseover="researchdescriptions(86)"></td>
+                    <td><img id="res87" src="Pictures/Transparent Pics/Research87.png" alt="" onclick="buyResearch(87);" class="chal8" onmouseover="researchdescriptions(87)"></td>
+                    <td><img id="res88" src="Pictures/Transparent Pics/Research88.png" alt="" onclick="buyResearch(88);" class="chal8" onmouseover="researchdescriptions(88)"></td>
+                    <td><img id="res89" src="Pictures/Transparent Pics/Research89.png" alt="" onclick="buyResearch(89);" class="chal8" onmouseover="researchdescriptions(89)"></td>
+                    <td><img id="res90" src="Pictures/Transparent Pics/Research90.png" alt="" onclick="buyResearch(90);" class="chal8" onmouseover="researchdescriptions(90)"></td></td>
                     <td><img id="res111" src="Pictures/Transparent Pics/Research111.png" alt="" onclick="buyResearch(111);" class="chal10" onmouseover="researchdescriptions(111)"></td>
                     <td><img id="res112" src="Pictures/Transparent Pics/Research112.png" alt="" onclick="buyResearch(112);" class="chal10" onmouseover="researchdescriptions(112)"></td>
                     <td><img id="res113" src="Pictures/Transparent Pics/Research113.png" alt="" onclick="buyResearch(113);" class="chal10" onmouseover="researchdescriptions(113)"></td>
@@ -1188,26 +1262,26 @@
                     <td><img id="res115" src="Pictures/Transparent Pics/Research115.png" alt="" onclick="buyResearch(115);" class="chal10" onmouseover="researchdescriptions(115)"></td>
                 </tr>
                 <tr>
-                    <td><img id="res16" src="Pictures/Transparent Pics/Research16.png" alt="" onclick="buyResearch(16);" onmouseover="researchdescriptions(16)">                    </td>
-                    <td><img id="res17" src="Pictures/Transparent Pics/Research17.png" alt="" onclick="buyResearch(17);" onmouseover="researchdescriptions(17)"></td>                    
-                    <td><img id="res18" src="Pictures/Transparent Pics/Research18.png" alt="" onclick="buyResearch(18);" onmouseover="researchdescriptions(18)">                    </td>
-                    <td><img id="res19" src="Pictures/Transparent Pics/Research19.png" alt="" onclick="buyResearch(19);" onmouseover="researchdescriptions(19)">                    </td>
-                    <td><img id="res20" src="Pictures/Transparent Pics/Research20.png" alt="" onclick="buyResearch(20);" onmouseover="researchdescriptions(20)">   </td>
-                    <td><img id="res41" src="Pictures/Transparent Pics/Research41.png" alt="" onclick="buyResearch(41);" onmouseover="researchdescriptions(41)">                    </td>
-                    <td><img id="res42" src="Pictures/Transparent Pics/Research42.png" alt="" onclick="buyResearch(42);" onmouseover="researchdescriptions(42)">                    </td>
-                    <td><img id="res43" src="Pictures/Transparent Pics/Research43.png" alt="" onclick="buyResearch(43);" onmouseover="researchdescriptions(43)">                    </td>
-                    <td><img id="res44" src="Pictures/Transparent Pics/Research44.png" alt="" onclick="buyResearch(44);" onmouseover="researchdescriptions(44)">                    </td>
-                    <td><img id="res45" src="Pictures/Transparent Pics/Research45.png" alt="" onclick="buyResearch(45);" onmouseover="researchdescriptions(45)">                    </td>
-                    <td><img id="res66" src="Pictures/Transparent Pics/Research66.png" alt="" onclick="buyResearch(66);" onmouseover="researchdescriptions(66)">                    </td>
-                    <td><img id="res67" src="Pictures/Transparent Pics/Research67.png" alt="" onclick="buyResearch(67);" onmouseover="researchdescriptions(67)"></td>                    
-                    <td><img id="res68" src="Pictures/Transparent Pics/Research68.png" alt="" onclick="buyResearch(68);" onmouseover="researchdescriptions(68)">                    </td>
-                    <td><img id="res69" src="Pictures/Transparent Pics/Research69.png" alt="" onclick="buyResearch(69);" onmouseover="researchdescriptions(69)">                    </td>
-                    <td><img id="res70" src="Pictures/Transparent Pics/Research70.png" alt="" onclick="buyResearch(70);" onmouseover="researchdescriptions(70)">   </td>
-                    <td><img id="res91" src="Pictures/Transparent Pics/Research91.png" alt="" onclick="buyResearch(91);" class="chal8" onmouseover="researchdescriptions(91)">                    </td>
-                    <td><img id="res92" src="Pictures/Transparent Pics/Research92.png" alt="" onclick="buyResearch(92);" class="chal8" onmouseover="researchdescriptions(92)">                    </td>
-                    <td><img id="res93" src="Pictures/Transparent Pics/Research93.png" alt="" onclick="buyResearch(93);" class="chal8" onmouseover="researchdescriptions(93)">                    </td>
-                    <td><img id="res94" src="Pictures/Transparent Pics/Research94.png" alt="" onclick="buyResearch(94);" class="chal8" onmouseover="researchdescriptions(94)">                    </td>
-                    <td><img id="res95" src="Pictures/Transparent Pics/Research95.png" alt="" onclick="buyResearch(95);" class="chal8" onmouseover="researchdescriptions(95)">                    </td>
+                    <td><img id="res16" src="Pictures/Transparent Pics/Research16.png" alt="" onclick="buyResearch(16);" onmouseover="researchdescriptions(16)"></td>
+                    <td><img id="res17" src="Pictures/Transparent Pics/Research17.png" alt="" onclick="buyResearch(17);" onmouseover="researchdescriptions(17)"></td>
+                    <td><img id="res18" src="Pictures/Transparent Pics/Research18.png" alt="" onclick="buyResearch(18);" onmouseover="researchdescriptions(18)"></td>
+                    <td><img id="res19" src="Pictures/Transparent Pics/Research19.png" alt="" onclick="buyResearch(19);" onmouseover="researchdescriptions(19)"></td>
+                    <td><img id="res20" src="Pictures/Transparent Pics/Research20.png" alt="" onclick="buyResearch(20);" onmouseover="researchdescriptions(20)"></td>
+                    <td><img id="res41" src="Pictures/Transparent Pics/Research41.png" alt="" onclick="buyResearch(41);" onmouseover="researchdescriptions(41)"></td>
+                    <td><img id="res42" src="Pictures/Transparent Pics/Research42.png" alt="" onclick="buyResearch(42);" onmouseover="researchdescriptions(42)"></td>
+                    <td><img id="res43" src="Pictures/Transparent Pics/Research43.png" alt="" onclick="buyResearch(43);" onmouseover="researchdescriptions(43)"></td>
+                    <td><img id="res44" src="Pictures/Transparent Pics/Research44.png" alt="" onclick="buyResearch(44);" onmouseover="researchdescriptions(44)"></td>
+                    <td><img id="res45" src="Pictures/Transparent Pics/Research45.png" alt="" onclick="buyResearch(45);" onmouseover="researchdescriptions(45)"></td>
+                    <td><img id="res66" src="Pictures/Transparent Pics/Research66.png" alt="" onclick="buyResearch(66);" onmouseover="researchdescriptions(66)"></td>
+                    <td><img id="res67" src="Pictures/Transparent Pics/Research67.png" alt="" onclick="buyResearch(67);" onmouseover="researchdescriptions(67)"></td>
+                    <td><img id="res68" src="Pictures/Transparent Pics/Research68.png" alt="" onclick="buyResearch(68);" onmouseover="researchdescriptions(68)"></td>
+                    <td><img id="res69" src="Pictures/Transparent Pics/Research69.png" alt="" onclick="buyResearch(69);" onmouseover="researchdescriptions(69)"></td>
+                    <td><img id="res70" src="Pictures/Transparent Pics/Research70.png" alt="" onclick="buyResearch(70);" onmouseover="researchdescriptions(70)"></td>
+                    <td><img id="res91" src="Pictures/Transparent Pics/Research91.png" alt="" onclick="buyResearch(91);" class="chal8" onmouseover="researchdescriptions(91)"></td>
+                    <td><img id="res92" src="Pictures/Transparent Pics/Research92.png" alt="" onclick="buyResearch(92);" class="chal8" onmouseover="researchdescriptions(92)"></td>
+                    <td><img id="res93" src="Pictures/Transparent Pics/Research93.png" alt="" onclick="buyResearch(93);" class="chal8" onmouseover="researchdescriptions(93)"></td>
+                    <td><img id="res94" src="Pictures/Transparent Pics/Research94.png" alt="" onclick="buyResearch(94);" class="chal8" onmouseover="researchdescriptions(94)"></td>
+                    <td><img id="res95" src="Pictures/Transparent Pics/Research95.png" alt="" onclick="buyResearch(95);" class="chal8" onmouseover="researchdescriptions(95)"></td>
                     <td><img id="res116" src="Pictures/Transparent Pics/Research116.png" alt="" onclick="buyResearch(116);" class="chal10" onmouseover="researchdescriptions(116)"></td>
                     <td><img id="res117" src="Pictures/Transparent Pics/Research117.png" alt="" onclick="buyResearch(117);" class="chal10" onmouseover="researchdescriptions(117)"></td>
                     <td><img id="res118" src="Pictures/Transparent Pics/Research118.png" alt="" onclick="buyResearch(118);" class="chal10" onmouseover="researchdescriptions(118)"></td>
@@ -1215,26 +1289,26 @@
                     <td><img id="res120" src="Pictures/Transparent Pics/Research120.png" alt="" onclick="buyResearch(120);" class="chal10" onmouseover="researchdescriptions(120)"></td>
                 </tr>
                 <tr>
-                    <td><img id="res21" src="Pictures/Transparent Pics/Research21.png" alt="" onclick="buyResearch(21);" onmouseover="researchdescriptions(21)">                    </td>
-                    <td><img id="res22" src="Pictures/Transparent Pics/Research22.png" alt="" onclick="buyResearch(22);" onmouseover="researchdescriptions(22)">                    </td>
-                    <td><img id="res23" src="Pictures/Transparent Pics/Research23.png" alt="" onclick="buyResearch(23);" onmouseover="researchdescriptions(23)">                    </td>
-                    <td><img id="res24" src="Pictures/Transparent Pics/Research24.png" alt="" onclick="buyResearch(24);" onmouseover="researchdescriptions(24)"></td>                    
+                    <td><img id="res21" src="Pictures/Transparent Pics/Research21.png" alt="" onclick="buyResearch(21);" onmouseover="researchdescriptions(21)"></td>
+                    <td><img id="res22" src="Pictures/Transparent Pics/Research22.png" alt="" onclick="buyResearch(22);" onmouseover="researchdescriptions(22)"></td>
+                    <td><img id="res23" src="Pictures/Transparent Pics/Research23.png" alt="" onclick="buyResearch(23);" onmouseover="researchdescriptions(23)"></td>
+                    <td><img id="res24" src="Pictures/Transparent Pics/Research24.png" alt="" onclick="buyResearch(24);" onmouseover="researchdescriptions(24)"></td>
                     <td><img id="res25" src="Pictures/Transparent Pics/Research25.png" alt="" onclick="buyResearch(25);" onmouseover="researchdescriptions(25)"></td>
-                    <td><img id="res46" src="Pictures/Transparent Pics/Research46.png" alt="" onclick="buyResearch(46);" onmouseover="researchdescriptions(46)">                    </td>
-                    <td><img id="res47" src="Pictures/Transparent Pics/Research47.png" alt="" onclick="buyResearch(47);" onmouseover="researchdescriptions(47)">                    </td>
-                    <td><img id="res48" src="Pictures/Transparent Pics/Research48.png" alt="" onclick="buyResearch(48);" onmouseover="researchdescriptions(48)">                    </td>
-                    <td><img id="res49" src="Pictures/Transparent Pics/Research49.png" alt="" onclick="buyResearch(49);" onmouseover="researchdescriptions(49)">                    </td>
-                    <td><img id="res50" src="Pictures/Transparent Pics/Research50.png" alt="" onclick="buyResearch(50);" onmouseover="researchdescriptions(50)">                    </td>
-                    <td><img id="res71" src="Pictures/Transparent Pics/Research71.png" alt="" onclick="buyResearch(71);" onmouseover="researchdescriptions(71)">                    </td>
-                    <td><img id="res72" src="Pictures/Transparent Pics/Research72.png" alt="" onclick="buyResearch(72);" onmouseover="researchdescriptions(72)">                    </td>
-                    <td><img id="res73" src="Pictures/Transparent Pics/Research73.png" alt="" onclick="buyResearch(73);" onmouseover="researchdescriptions(73)">                    </td>
-                    <td><img id="res74" src="Pictures/Transparent Pics/Research74.png" alt="" onclick="buyResearch(74);" onmouseover="researchdescriptions(74)"></td>                    
+                    <td><img id="res46" src="Pictures/Transparent Pics/Research46.png" alt="" onclick="buyResearch(46);" onmouseover="researchdescriptions(46)"></td>
+                    <td><img id="res47" src="Pictures/Transparent Pics/Research47.png" alt="" onclick="buyResearch(47);" onmouseover="researchdescriptions(47)"></td>
+                    <td><img id="res48" src="Pictures/Transparent Pics/Research48.png" alt="" onclick="buyResearch(48);" onmouseover="researchdescriptions(48)"></td>
+                    <td><img id="res49" src="Pictures/Transparent Pics/Research49.png" alt="" onclick="buyResearch(49);" onmouseover="researchdescriptions(49)"></td>
+                    <td><img id="res50" src="Pictures/Transparent Pics/Research50.png" alt="" onclick="buyResearch(50);" onmouseover="researchdescriptions(50)"></td>
+                    <td><img id="res71" src="Pictures/Transparent Pics/Research71.png" alt="" onclick="buyResearch(71);" onmouseover="researchdescriptions(71)"></td>
+                    <td><img id="res72" src="Pictures/Transparent Pics/Research72.png" alt="" onclick="buyResearch(72);" onmouseover="researchdescriptions(72)"></td>
+                    <td><img id="res73" src="Pictures/Transparent Pics/Research73.png" alt="" onclick="buyResearch(73);" onmouseover="researchdescriptions(73)"></td>
+                    <td><img id="res74" src="Pictures/Transparent Pics/Research74.png" alt="" onclick="buyResearch(74);" onmouseover="researchdescriptions(74)"></td>
                     <td><img id="res75" src="Pictures/Transparent Pics/Research75.png" alt="" onclick="buyResearch(75);" onmouseover="researchdescriptions(75)"></td>
-                    <td><img id="res96" src="Pictures/Transparent Pics/Research96.png" alt="" onclick="buyResearch(96);" class="chal8" onmouseover="researchdescriptions(96)">                    </td>
-                    <td><img id="res97" src="Pictures/Transparent Pics/Research97.png" alt="" onclick="buyResearch(97);" class="chal8" onmouseover="researchdescriptions(97)">                    </td>
-                    <td><img id="res98" src="Pictures/Transparent Pics/Research98.png" alt="" onclick="buyResearch(98);" class="chal8" onmouseover="researchdescriptions(98)">                    </td>
-                    <td><img id="res99" src="Pictures/Transparent Pics/Research99.png" alt="" onclick="buyResearch(99);" class="chal8" onmouseover="researchdescriptions(99)">                    </td>
-                    <td><img id="res100" src="Pictures/Transparent Pics/Research100.png" alt="" onclick="buyResearch(100);" class="chal8" onmouseover="researchdescriptions(100)">                    </td>
+                    <td><img id="res96" src="Pictures/Transparent Pics/Research96.png" alt="" onclick="buyResearch(96);" class="chal8" onmouseover="researchdescriptions(96)"></td>
+                    <td><img id="res97" src="Pictures/Transparent Pics/Research97.png" alt="" onclick="buyResearch(97);" class="chal8" onmouseover="researchdescriptions(97)"></td>
+                    <td><img id="res98" src="Pictures/Transparent Pics/Research98.png" alt="" onclick="buyResearch(98);" class="chal8" onmouseover="researchdescriptions(98)"></td>
+                    <td><img id="res99" src="Pictures/Transparent Pics/Research99.png" alt="" onclick="buyResearch(99);" class="chal8" onmouseover="researchdescriptions(99)"></td>
+                    <td><img id="res100" src="Pictures/Transparent Pics/Research100.png" alt="" onclick="buyResearch(100);" class="chal8" onmouseover="researchdescriptions(100)"></td>
                     <td><img id="res121" src="Pictures/Transparent Pics/Research121.png" alt="" onclick="buyResearch(121);" class="chal10" onmouseover="researchdescriptions(121)"></td>
                     <td><img id="res122" src="Pictures/Transparent Pics/Research122.png" alt="" onclick="buyResearch(122);" class="chal10" onmouseover="researchdescriptions(122)"></td>
                     <td><img id="res123" src="Pictures/Transparent Pics/Research123.png" alt="" onclick="buyResearch(123);" class="chal10" onmouseover="researchdescriptions(123)"></td>
@@ -1279,10 +1353,10 @@
                 <p id="generateant"></p>
             </div>
 
-           <!-- <div id="antdivisor" style="border: 1px solid goldenrod"></div> -->
+           <!-- <div id="antdivisor" style="border: 1px solid goldenrod"></div>-->
 
             <div id="antrow3" style="color:plum">
-                <p id="antspecies" style="font-size: 1.2em; color:royalblue"> <span id="antlevelbonus" style="color: orange"> </span></p>
+                <p id="antspecies" style="font-size: 1.2em; color:royalblue"><span id="antlevelbonus" style="color: orange"></span></p>
                 <p id="antupgradedescription"></p>
                 <p id="antupgradecost"></p>
                 <p id="antupgradeeffect"></p>
@@ -1305,7 +1379,7 @@
 
             <div id="antToggleFeatures">
                 <button id="toggleAntMax" onclick="toggleAntMaxBuy()" style="border: 1px solid gold">Buy Max: ON</button>
-                <button id="toggleAutoSacrificeAnt" onclick="toggleAntAutoSacrifice()" style="border: 1px solid crimson">Auto Sacrifice Every 15 Minutes: OFF</button> 
+                <button id="toggleAutoSacrificeAnt" onclick="toggleAntAutoSacrifice()" style="border: 1px solid crimson">Auto Sacrifice Every 15 Minutes: OFF</button>
             </div>
 
             <div id="sacrificeAnts" style="display: none">
@@ -1314,11 +1388,11 @@
             </div>
 
             <div id="antSacrificeSummary" style="display: none">
-                <p id="antELO" style="color: plum">Your Ant ELO is <span id="ELO" style="color: gold">0 ELO</span> <span id="effectiveELO" style="color: white"> </span></p>
+                <p id="antELO" style="color: plum">Your Ant ELO is <span id="ELO" style="color: gold">0 ELO</span><span id="effectiveELO" style="color: white"></span></p>
                 <p id="antUpgradeMultiplier" style="color: white">Upgrade Multiplier: <span id="SacrificeUpgradeMultiplier" style="color: gold">0.01x</span></p>
                 <p id="antTimeMultiplier" style="color: white">Time Multiplier: <span id="SacrificeTimeMultiplier" style="color: lightseagreen">0.01x</p>
                 <p id="antSacrificeTitle" style="color: crimson">Reset Anthill features for:</p>
-                <p id="antSacrificeMultiplier" style="color: white">Ant Sacrifice Multiplier: 1x --> <span id="SacrificeMultiplier" style="color: limegreen">x2</span></p>
+                <p id="antSacrificeMultiplier" style="color: white">Ant Sacrifice Multiplier: 1x --><span id="SacrificeMultiplier" style="color: limegreen">x2</span></p>
                 <table id="antSacrificeTable">
                     <tr style="height: 32px;">
                         <td style="font-size: 0;"><img src="Pictures/Offering.png"></td>
@@ -1418,8 +1492,8 @@
             <div id="creditssubtab" style="display: none">
             <p id="programminghelp" style="color:white">People who helped with programming: Khafra [General, Saving], Halo [Buying Features], Nyan Cat [Some Optimizations/Cleanup]</p>
             <p id="artisthelp" style="color:white">People who helped with art/design: Omsi, Alberan, Blank, ThalainTheCat, Sneekxy</p>
-            <p id="boosters" style="color:white">People who Boosted the Discord Server: <span style="color: lightskyblue">earth [Legacy], Flame [Legacy], Kittelson [Legacy], PerspectiveTransform [Legacy], somepersondontask [Legacy]</span>,<span style="color: green"> Gnum [2x!], Internet Car Man [2x!], Julius Dungworth [2x!], mdog245 [2x!], Nethlion [2x!], Slavderr [2x!], Sneekxy [2x!], Tony Tells you to CHECK THE PINS [2x!], Valorswift420 [2x!], Veritas [2x!], Zirios [2x!]</span>,<span style="color: pink"> Ace Rimmer, Arkanos80, BobMcKnob, jables, Mophtran, Schizogen, Stang, theefool, Voltana, Ximon.</span></p>
-            <p id="shameless" style="color: gold">And you, for playing my first ever project, Synergism!</p>             
+            <p id="boosters" style="color:white">People who Boosted the Discord Server: <span style="color: lightskyblue">earth [Legacy], Flame [Legacy], Kittelson [Legacy], PerspectiveTransform [Legacy], somepersondontask [Legacy]</span>,<span style="color: green">Gnum [2x!], Internet Car Man [2x!], Julius Dungworth [2x!], mdog245 [2x!], Nethlion [2x!], Slavderr [2x!], Sneekxy [2x!], Tony Tells you to CHECK THE PINS [2x!], Valorswift420 [2x!], Veritas [2x!], Zirios [2x!]</span>,<span style="color: pink">Ace Rimmer, Arkanos80, BobMcKnob, jables, Mophtran, Schizogen, Stang, theefool, Voltana, Ximon.</span></p>
+            <p id="shameless" style="color: gold">And you, for playing my first ever project, Synergism!</p>
         </div>
     </div>
 
@@ -1428,7 +1502,7 @@
         <table id="displayquarks">
         <tr>
             <td style="font-size: 0; width: 32px;"><img src="Pictures/Quark.png"></td>
-            <td><p id="quarkamount">You have 0 Quarks!</p> </td>
+            <td><p id="quarkamount">You have 0 Quarks!</p></td>
         </tr>
         </table>
 
@@ -1509,9 +1583,6 @@
 
 
     </div>
-
-
-    <link rel="stylesheet" href="Synergism.css">
 
     <script>
     document.getElementById('importfile').addEventListener('change', readFileAsString);
