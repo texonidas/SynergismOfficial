@@ -33,7 +33,7 @@
         <!--<script src="Javascript/i18n.js"></script>-->
         <title>Synergism 1.010</title>
     </head>
-    <body class="standard">
+    <body class="standard h-centered v-centered">
         <main style="width: 1050px; height: 625px">
             <div id="main-game">
                 <div id="top-margin" style="height: 30px"></div>
@@ -242,7 +242,7 @@
                                     <img style="width: 30px; height: 30px" src="Pictures/Coin.png" />
                                 </div>
                                 <div id="cointext" class="h-centered upgrade-title">Coin Upgrades</div>
-                                <div class="image-panel" style="height: 125px">
+                                <div class="image-panel v-distribute-items" style="height: 125px">
                                     <div>
                                         <img src="Pictures/Transparent Pics/Coin1.png" id="upg1" onclick="buyUpgrades('coin', 1)" onmouseover="upgradedescriptions(1)" />
                                         <img src="Pictures/Transparent Pics/Coin2.png" id="upg2" onclick="buyUpgrades('coin', 2)" onmouseover="upgradedescriptions(2)" />
@@ -282,7 +282,7 @@
                                     <img style="width: 30px; height: 30px" src="Pictures/Diamond.png" />
                                 </div>
                                 <div id="cointext" class="h-centered upgrade-title">Diamond Upgrades</div>
-                                <div class="image-panel" style="height: 125px">
+                                <div class="image-panel v-distribute-items" style="height: 125px">
                                     <div>
                                         <img src="Pictures/Transparent Pics/Diamond1.png" id="upg21" onclick="buyUpgrades('prestige', 21)" onmouseover="upgradedescriptions(21)">
                                         <img src="Pictures/Transparent Pics/Diamond2.png" id="upg22" onclick="buyUpgrades('prestige', 22)" onmouseover="upgradedescriptions(22)">
@@ -312,7 +312,7 @@
                                         <img class="chal9" src="Pictures/Transparent Pics/Diamond20.png" id="upg40" onclick="buyUpgrades('prestige', 40)" onmouseover="upgradedescriptions(40)">
                                     </div>
                                 </div>
-                                <div class="auto button h-centered" id="prestigetogglecoin" onclick="toggleShops(2)" style="border:2px solid green">Auto: ON</div>
+                                <div class="auto button h-centered" id="shoptoggleprestige" onclick="toggleShops(2)" style="border:2px solid green">Auto: ON</div>
                             </div>
 
                             <div class="upgrade-dead-space"></div>
@@ -322,7 +322,7 @@
                                     <img style="width: 30px; height: 30px" src="Pictures/Mythos.png" />
                                 </div>
                                 <div id="cointext" class="h-centered upgrade-title">Mythos Upgrades</div>
-                                <div class="image-panel" style="height: 125px">
+                                <div class="image-panel v-distribute-items" style="height: 125px">
                                     <div>
                                         <img src="Pictures/Transparent Pics/Mythos1.png" id="upg41" onclick="buyUpgrades('transcend', 41)" onmouseover="upgradedescriptions(41)">
                                         <img src="Pictures/Transparent Pics/Mythos2.png" id="upg42" onclick="buyUpgrades('transcend', 42)" onmouseover="upgradedescriptions(42)">
@@ -362,7 +362,7 @@
                                     <img style="width: 30px; height: 30px" src="Pictures/Generators.png" />
                                 </div>
                                 <div id="cointext" class="h-centered upgrade-title">Generator Shop</div>
-                                <div class="image-panel" style="height: 125px">
+                                <div class="image-panel v-distribute-items" style="height: 125px">
                                     <div>
                                         <img id="upg101" src="Pictures/Transparent Pics/GeneratorOne.png" onclick="buyGenerator(1)" onmouseover="upgradedescriptions(101)"></td>
                                         <img id="upg102" class="generationunlock" src="Pictures/Transparent Pics/GeneratorTwo.png"  onclick="buyGenerator(2)" onmouseover="upgradedescriptions(102)">
@@ -402,7 +402,7 @@
                                     <img style="width: 30px; height: 30px" src="Pictures/Automation.png" />
                                 </div>
                                 <div id="cointext" class="h-centered upgrade-title">Automation Shop</div>
-                                <div class="image-panel" style="height: 125px">
+                                <div class="image-panel v-distribute-items" style="height: 125px">
                                     <div>
                                         <img id="upg81" src="Pictures/Transparent Pics/AutomationOne.png" onclick="buyAutobuyers(1)" onmouseover="upgradedescriptions(81)">
                                         <img id="upg82" src="Pictures/Transparent Pics/AutomationTwo.png" onclick="buyAutobuyers(2)" onmouseover="upgradedescriptions(82)">
@@ -472,6 +472,8 @@
                                     </div>
                                 </div>
                             </div>
+
+                            <div class="dead-space" style="width: 80px"></div>
                         </div>
 
                         <div style="height: 225px" class="h-centered">
