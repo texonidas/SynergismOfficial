@@ -1,12 +1,28 @@
+:root
+{
+    --dampened-gold: rgb(230, 200, 0);
+    --dampened-cyan: rgb(0, 222, 222);
+}
+
 .coin
 {
-    color: gold;
-    border-color: gold;
+    color: var(--dampened-gold);
+    border-color: var(--dampened-gold);
+}
+.coin.subtabButton
+{
+    color: white;
+    border-color: var(--dampened-gold);
 }
 .diamond
 {
-    color: cyan;
-    border-color: cyan;
+    color: var(--dampened-cyan);
+    border-color: var(--dampened-cyan);
+}
+.diamond.subtabButton
+{
+    color: white;
+    border-color: var(--dampened-cyan);
 }
 .generator
 {
@@ -27,19 +43,21 @@
     color: plum;
     border-color: plum;
 }
+.mythos.subtabButton
+{
+    color: white;
+    border-color: plum;
+}
 
-.small-accent .particle, .small-accent.particle, .particle
+.particle
 {
     color: limegreen;
     border-color: green;
 }
-.medium-accent .particle, .medium-accent.particle
+.particle.subtabButton
 {
-    color: lime;
-}
-.large-accent .particle, .large-accent.particle
-{
-    color: lime;
+    color: white;
+    border-color: limegreen;
 }
 
 .small-accent .obtainium, .small-accent.obtainium, .obtainium
